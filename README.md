@@ -26,8 +26,3 @@ npm run preview
 
 * Importar o repositório no Vercel e fazer deploy.
 * O projeto inclui `vercel.json` com rewrite para evitar 404 em rotas do React Router.
-
-```
-
-Se quiser, eu também posso te mandar um `README` versão “currículo”, com 3 bullets de impacto e um mini roadmap (bem curto) — fica mais profissional sem virar textão.
-```
