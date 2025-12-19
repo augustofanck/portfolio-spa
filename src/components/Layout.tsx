@@ -1,7 +1,10 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
+import { useTranslation } from "react-i18next";
 
 export default function Layout() {
+  const { t } = useTranslation();
+
   return (
     <>
       <NavBar />
@@ -18,8 +21,8 @@ export default function Layout() {
             flexWrap: "wrap",
           }}
         >
-          <span>© {new Date().getFullYear()} • Portfólio</span>
-          <span>Feito com React + Vite + Vercel</span>
+          <span>{t("footer.left", { year: new Date().getFullYear() })}</span>
+          <span>{t("footer.right")}</span>
         </div>
       </footer>
     </>

@@ -1,26 +1,40 @@
 import { useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { projects } from "../data/projects";
+import { useTranslation } from "react-i18next";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
+  const { t } = useTranslation();
 
   const project = useMemo(() => projects.find((p) => p.slug === slug), [slug]);
 
   if (!project) {
     return (
       <div className="card">
-        <h2 style={{ marginTop: 0 }}>Projeto não encontrado</h2>
-        <Link to="/projects">Voltar</Link>
+        <h2 style={{ marginTop: 0 }}>{t("projectDetail.notFoundTitle")}</h2>
+        <Link to="/projects">{t("projectDetail.backProjects")}</Link>
       </div>
     );
   }
 
+  const solution = t(`caseStudies.${project.slug}.solution`, {
+    returnObjects: true,
+  }) as string[];
+  const highlights = t(`caseStudies.${project.slug}.highlights`, {
+    returnObjects: true,
+  }) as string[];
+  const metrics = t(`caseStudies.${project.slug}.metrics`, {
+    returnObjects: true,
+  }) as string[];
+
   return (
     <div className="grid">
       <div className="card">
-        <h1 style={{ marginTop: 0 }}>{project.title}</h1>
-        <p className="muted">{project.oneLiner}</p>
+        <h1 style={{ marginTop: 0 }}>
+          {t(`caseStudies.${project.slug}.title`)}
+        </h1>
+        <p className="muted">{t(`caseStudies.${project.slug}.oneLiner`)}</p>
 
         <div className="row" style={{ gap: 8, marginTop: 10 }}>
           {project.stack.map((s) => (
@@ -32,45 +46,47 @@ export default function ProjectDetail() {
 
         <hr />
 
-        <h3>Problema</h3>
-        <p className="muted">{project.problem}</p>
+        <h3>{t("projectDetail.problem")}</h3>
+        <p className="muted">{t(`caseStudies.${project.slug}.problem`)}</p>
 
-        <h3>Solução</h3>
+        <h3>{t("projectDetail.solution")}</h3>
         <ul className="muted">
-          {project.solution.map((x, i) => (
+          {solution.map((x, i) => (
             <li key={i}>{x}</li>
           ))}
         </ul>
 
-        <h3>Destaques</h3>
+        <h3>{t("projectDetail.highlights")}</h3>
         <ul className="muted">
-          {project.highlights.map((x, i) => (
+          {highlights.map((x, i) => (
             <li key={i}>{x}</li>
           ))}
         </ul>
 
-        {project.metrics?.length ? (
+        {metrics?.length ? (
           <>
-            <h3>Métricas</h3>
+            <h3>{t("projectDetail.metrics")}</h3>
             <ul className="muted">
-              {project.metrics.map((x, i) => (
+              {metrics.map((x, i) => (
                 <li key={i}>{x}</li>
               ))}
             </ul>
           </>
         ) : null}
 
-        <h3>Links</h3>
+        <h3>{t("projectDetail.links")}</h3>
         <div className="row">
           {project.links.map((l) => (
             <a key={l.url} href={l.url} target="_blank" rel="noreferrer">
-              <button className="ghost">{l.label}</button>
+              <button className="ghost">
+                {t(`caseStudies.${project.slug}.links.${l.key}`)}
+              </button>
             </a>
           ))}
         </div>
 
         <hr />
-        <Link to="/projects">← Voltar para projetos</Link>
+        <Link to="/projects">← {t("projectDetail.backProjects")}</Link>
       </div>
     </div>
   );

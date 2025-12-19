@@ -1,0 +1,117 @@
+{
+  "nav": { "home": "Home", "projects": "Projects", "demos": "Demos", "eng": "Engineering" },
+  "ui": { "theme": "Theme", "light": "Light", "dark": "Dark", "lang": "Language", "pt": "PT-BR", "en": "EN" },
+  "brand": { "subtitle": "Junior Dev (Product + Integrations)" },
+  "footer": { "left": "© {{year}} • Portfolio", "right": "Built with React + Vite + Vercel" },
+
+  "home": {
+    "title": "Portfolio",
+    "subtitle": "product-minded developer",
+    "desc": "I build end-to-end business flows: data consistency, integrations, and UX that doesn't break operations.",
+    "ctaProjects": "View projects",
+    "ctaDemos": "View demos",
+    "deliverTitle": "What I deliver",
+    "deliver1": "Complex forms with consistent payloads",
+    "deliver2": "Async search and UI performance",
+    "deliver3": "Integrations (payments, auth, data)",
+    "thinkTitle": "How I think",
+    "thinkDesc": "Less “works on my machine”, more “production-ready”: validation, anti-duplication, state handling, and safe evolution."
+  },
+
+  "projectsPage": {
+    "title": "Projects",
+    "subtitle": "Case studies with problem → solution → impact.",
+    "searchPlaceholder": "Search by stack, project, feature…",
+    "allStacks": "All stacks"
+  },
+  "projectDetail": {
+    "notFoundTitle": "Project not found",
+    "backProjects": "Back to projects",
+    "problem": "Problem",
+    "solution": "Solution",
+    "highlights": "Highlights",
+    "metrics": "Metrics",
+    "links": "Links"
+  },
+
+  "demosPage": {
+    "title": "Demos",
+    "subtitle": "Mini-apps to prove skills in practice—no slides.",
+    "cards": {
+      "budgetTitle": "Dynamic budget",
+      "budgetDesc": "Subtotal/total + discount, add/remove lines.",
+      "asyncTitle": "Async search",
+      "asyncDesc": "Select2 AJAX-like: debounce, pagination, and “load more”.",
+      "payTitle": "Payment states",
+      "payDesc": "Simulates approved/pending/failed and return UX."
+    }
+  },
+
+  "demo": {
+    "budget": {
+      "title": "Demo — Dynamic Budget",
+      "desc": "Same logic as a real module: line subtotal, final total, and percentage discount.",
+      "add": "+ Add line",
+      "remove": "Remove",
+      "subtotal": "Subtotal",
+      "total": "Total",
+      "sampleItemName": "Sample item",
+      "newItemName": "New item"
+    },
+    "async": {
+      "title": "Demo — Async Search",
+      "desc": "Select2 AJAX-like: debounce, pagination, and load more. Type at least 2 characters.",
+      "placeholder": "e.g., Item 2",
+      "type2": "Type 2+ characters to search.",
+      "loading": "Loading…",
+      "loadMore": "Load more",
+      "price": "Price",
+      "stock": "Stock",
+      "itemLabel": "Product"
+    },
+    "payment": {
+      "title": "Demo — Payment States",
+      "desc": "Simulates what you'd handle in real integrations: states and return UX.",
+      "approvedTitle": "Payment approved ✅",
+      "approvedMsg": "Order confirmed. You can release access/delivery and log the transaction.",
+      "pendingTitle": "Payment pending ⏳",
+      "pendingMsg": "Waiting for provider confirmation. Show instructions and avoid duplicate attempts.",
+      "failedTitle": "Payment failed ❌",
+      "failedMsg": "Explain the reason (when available) and offer a clean retry UX.",
+      "primaryAction": "Primary action",
+      "secondaryAction": "Secondary action",
+      "statusApproved": "approved",
+      "statusPending": "pending",
+      "statusFailed": "failed"
+    }
+  },
+
+  "engineeringPage": { "title": "Engineering Notes" },
+
+  "notFound": {
+    "title": "404",
+    "desc": "This route doesn't exist (yet). But the ambition does.",
+    "backHome": "Back home"
+  },
+
+  "caseStudies": {
+    "estoque-ci4": {
+      "title": "ERP Aplication for small business (CodeIgniter 4)",
+      "oneLiner": "Simplified initial application for management of small business",
+      "problem": "An optician's shop was performing operations manually using spreadsheets, which could directly impact its long-term performance.",
+      "solution": [
+        "Creation of complete CRUD within essential modules (service orders, clients, users)",
+        "Application entirely created and exported using a MySQL relational database",
+        "Pursuit of clean-code methodology, in order to facilitate development"
+      ],
+      "highlights": [
+        "Fast and predictable UX",
+        "Less operational error",
+        "Data ready for back-end persistence",
+        "Login/logout using JWT tokens"
+      ],
+      "metrics": [],
+      "links": { "repo": "Repository", "demo": "Demo" }
+    }
+  }
+}

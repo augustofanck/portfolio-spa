@@ -1,38 +1,89 @@
 import { NavLink } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
 
 const linkStyle = ({ isActive }: { isActive: boolean }) => ({
   textDecoration: "none",
   padding: "10px 12px",
   borderRadius: 12,
-  border: "1px solid #eee",
-  background: isActive ? "#111" : "white",
-  color: isActive ? "white" : "#111",
+  border: "1px solid var(--border)",
+  background: isActive ? "var(--text)" : "var(--surface)",
+  color: isActive ? "var(--bg)" : "var(--text)",
 });
 
 export default function NavBar() {
+  const { theme, toggle } = useTheme();
+  const { t } = useTranslation();
+
+  function toggleLang() {
+    const next = i18n.language === "ptBR" ? "en" : "ptBR";
+    i18n.changeLanguage(next);
+    localStorage.setItem("lang", next);
+  }
+
   return (
-    <div style={{ borderBottom: "1px solid #eee", background: "white" }}>
+    <div
+      style={{
+        borderBottom: "1px solid var(--border)",
+        background: "var(--surface)",
+      }}
+    >
       <div className="container" style={{ paddingTop: 16, paddingBottom: 16 }}>
-        <div className="row" style={{ justifyContent: "space-between" }}>
-          <div className="row">
-            <strong style={{ letterSpacing: -0.2 }}>Augusto Fanck</strong>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 12,
+            flexWrap: "wrap",
+          }}
+        >
+          {/* Esquerda: identidade */}
+          <div className="row" style={{ gap: 10 }}>
+            <strong style={{ letterSpacing: -0.2 }}>Seu Nome</strong>
             <span className="muted">• Dev Pleno (Produto + Integrações)</span>
           </div>
 
-          <nav className="row">
+          {/* Centro: navegação */}
+          <nav
+            className="row"
+            style={{ justifyContent: "center", flex: 1, minWidth: 260 }}
+          >
             <NavLink to="/" style={linkStyle}>
-              Home
+              {t("nav.home")}
             </NavLink>
             <NavLink to="/projects" style={linkStyle}>
-              Projetos
+              {t("nav.projects")}
             </NavLink>
             <NavLink to="/demos" style={linkStyle}>
-              Demos
+              {t("nav.demos")}
             </NavLink>
             <NavLink to="/engineering" style={linkStyle}>
-              Engineering
+              {t("nav.eng")}
             </NavLink>
           </nav>
+
+          {/* Direita: botões pequenos (tema/idioma) */}
+          <div className="row" style={{ justifyContent: "flex-end" }}>
+            <button
+              className="ghost btn-sm"
+              onClick={toggle}
+              title={t("ui.theme")}
+              aria-label={t("ui.theme")}
+            >
+              {theme === "dark" ? "🌙" : "☀️"}
+            </button>
+
+            <button
+              className="ghost btn-sm"
+              onClick={toggleLang}
+              title={t("ui.lang")}
+              aria-label={t("ui.lang")}
+            >
+              {i18n.language === "ptBR" ? "PT" : "EN"}
+            </button>
+          </div>
         </div>
       </div>
     </div>

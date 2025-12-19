@@ -1,0 +1,131 @@
+{
+  "nav": { "home": "Home", "projects": "Projetos", "demos": "Demos", "eng": "Engenharia" },
+  "ui": {
+    "theme": "Tema",
+    "light": "Claro",
+    "dark": "Escuro",
+    "lang": "Idioma",
+    "pt": "PT-BR",
+    "en": "EN"
+  },
+  "brand": {
+    "subtitle": "Dev Junior (Produto + Integrações)"
+  },
+  "footer": {
+    "left": "© {{year}} • Portfólio",
+    "right": "Feito com React + Vite + Vercel"
+  },
+
+  "home": {
+    "title": "Portfólio",
+    "subtitle": "Desenvolvedor Júnior Full-Stack",
+    "desc": "Eu construo fluxo de negócio de ponta a ponta: consistência de dados, integrações e UX que não dá dor de cabeça na operação.",
+    "ctaProjects": "Ver projetos",
+    "ctaDemos": "Ver demos",
+    "deliverTitle": "O que eu entrego",
+    "deliver1": "Formulários complexos com payload consistente",
+    "deliver2": "Busca assíncrona e performance de UI",
+    "deliver3": "Integrações (pagamento, auth, dados)",
+    "thinkTitle": "Como eu penso",
+    "thinkDesc": "Menos “funcionou aqui”, mais “aguenta produção”: validação, anti-duplicidade, estados e evolução sem quebrar o que já existe."
+  },
+
+  "projectsPage": {
+    "title": "Projetos",
+    "subtitle": "Case studies com problema → solução → impacto.",
+    "searchPlaceholder": "Buscar por stack, projeto, feature…",
+    "allStacks": "Todas as stacks"
+  },
+  "projectDetail": {
+    "notFoundTitle": "Projeto não encontrado",
+    "backProjects": "Voltar para projetos",
+    "problem": "Problema",
+    "solution": "Solução",
+    "highlights": "Destaques",
+    "metrics": "Métricas",
+    "links": "Links"
+  },
+
+  "demosPage": {
+    "title": "Demos",
+    "subtitle": "Mini-apps pra provar habilidade na prática, sem PowerPoint.",
+    "cards": {
+      "budgetTitle": "Orçamento dinâmico",
+      "budgetDesc": "Subtotal/total + desconto, add/remove de linhas.",
+      "asyncTitle": "Busca assíncrona",
+      "asyncDesc": "Simula Select2 AJAX: debounce, paginação e “load more”.",
+      "payTitle": "Estados de pagamento",
+      "payDesc": "Simula approved/pending/failed e UX de retorno."
+    }
+  },
+
+  "demo": {
+    "budget": {
+      "title": "Demo — Orçamento Dinâmico",
+      "desc": "A lógica é a mesma de um módulo real: subtotal por item, total final e desconto percentual.",
+      "add": "+ Adicionar linha",
+      "remove": "Remover",
+      "subtotal": "Subtotal",
+      "total": "Total",
+      "sampleItemName": "Item exemplo",
+      "newItemName": "Novo item"
+    },
+    "async": {
+      "title": "Demo — Busca Assíncrona",
+      "desc": "Simula Select2 AJAX: debounce, paginação e load more. Digite pelo menos 2 caracteres.",
+      "placeholder": "Ex: Item 2",
+      "type2": "Digite 2+ caracteres para buscar.",
+      "loading": "Carregando…",
+      "loadMore": "Carregar mais",
+      "price": "Preço",
+      "stock": "Estoque",
+      "itemLabel": "Item"
+    },
+    "payment": {
+      "title": "Demo — Estados de Pagamento",
+      "desc": "Simula o que você trataria em integrações reais: estados e UX do retorno.",
+      "approvedTitle": "Pagamento aprovado ✅",
+      "approvedMsg": "Pedido confirmado. Você já pode liberar o acesso/entrega e registrar a transação.",
+      "pendingTitle": "Pagamento pendente ⏳",
+      "pendingMsg": "Aguardando confirmação do provedor. Mostre instruções e evite duplicidade de tentativa.",
+      "failedTitle": "Pagamento falhou ❌",
+      "failedMsg": "Informe o motivo (quando houver) e ofereça nova tentativa com UX limpa.",
+      "primaryAction": "Ação principal",
+      "secondaryAction": "Ação secundária",
+      "statusApproved": "aprovado",
+      "statusPending": "pendente",
+      "statusFailed": "falhou"
+    }
+  },
+
+  "engineeringPage": {
+    "title": "Notas de Engenharia"
+  },
+
+  "notFound": {
+    "title": "404",
+    "desc": "Essa rota não existe (ainda). Mas a ambição existe.",
+    "backHome": "Voltar pra Home"
+  },
+
+  "caseStudies": {
+    "estoque-ci4": {
+      "title": "Aplicação ERP para pequenas empresas (CodeIgniter 4)",
+      "oneLiner": "Aplicação simplificada inicial para gestão de pequenas empresas.",
+      "problem": "Uma ótica realizava operações manualmente através de planilhas, o que poderia impactar diretamente dentro de seu desempenho a longo prazo.",
+      "solution": [
+        "Criação do CRUD completo dentro de módulos essenciais (ordens de serviço, clientes, usuários)",
+        "Aplicação inteiramente criada e exportada utilizando um banco de dados relacional MySQL",
+        "Busca pela metodologia de código-limpo, afim de trazer facilidade ao desenvolvimento"
+      ],
+      "highlights": [
+        "UX rápida e previsível",
+        "Menor porcentagem de erro operacional",
+        "Dados seguros e detalhados dentro do projeto",
+        "Login/logout utilizando tokens JWT"
+      ],
+      "metrics": [],
+      "links": { "repo": "Repositório", "demo": "Demo" }
+    }
+  }
+}

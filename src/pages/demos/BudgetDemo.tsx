@@ -1,4 +1,6 @@
 import { useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
+
 type Line = {
   id: string;
   name: string;
@@ -8,10 +10,12 @@ type Line = {
 };
 
 export default function BudgetDemo() {
+  const { t } = useTranslation();
+
   const [lines, setLines] = useState<Line[]>([
     {
       id: crypto.randomUUID(),
-      name: "Item exemplo",
+      name: t("demo.budget.sampleItemName"),
       qty: 1,
       unit: 10,
       discount: 0,
@@ -38,7 +42,7 @@ export default function BudgetDemo() {
       ...prev,
       {
         id: crypto.randomUUID(),
-        name: "Novo item",
+        name: t("demo.budget.newItemName"),
         qty: 1,
         unit: 0,
         discount: 0,
@@ -53,14 +57,11 @@ export default function BudgetDemo() {
   return (
     <div className="grid">
       <div className="card">
-        <h1 style={{ marginTop: 0 }}>Demo — Orçamento Dinâmico</h1>
-        <p className="muted">
-          A lógica é a mesma de um módulo real: subtotal por item, total final e
-          desconto percentual.
-        </p>
+        <h1 style={{ marginTop: 0 }}>{t("demo.budget.title")}</h1>
+        <p className="muted">{t("demo.budget.desc")}</p>
 
         <button className="primary" onClick={add}>
-          + Adicionar linha
+          {t("demo.budget.add")}
         </button>
 
         <div className="grid" style={{ marginTop: 16 }}>
@@ -77,38 +78,15 @@ export default function BudgetDemo() {
                     onChange={(e) => update(i, { name: e.target.value })}
                     style={{ flex: 1, minWidth: 220 }}
                   />
-                  <button onClick={() => remove(i)}>Remover</button>
-                </div>
-
-                <div className="row" style={{ marginTop: 10 }}>
-                  <input
-                    type="number"
-                    step="0.01"
-                    value={l.qty}
-                    onChange={(e) => update(i, { qty: Number(e.target.value) })}
-                  />
-                  <input
-                    type="number"
-                    step="0.01"
-                    value={l.unit}
-                    onChange={(e) =>
-                      update(i, { unit: Number(e.target.value) })
-                    }
-                  />
-                  <input
-                    type="number"
-                    step="0.01"
-                    value={l.discount}
-                    onChange={(e) =>
-                      update(i, { discount: Number(e.target.value) })
-                    }
-                  />
+                  <button onClick={() => remove(i)}>
+                    {t("demo.budget.remove")}
+                  </button>
                 </div>
 
                 <div
                   style={{ textAlign: "right", fontWeight: 700, marginTop: 8 }}
                 >
-                  Subtotal: R$ {subtotal.toFixed(2)}
+                  {t("demo.budget.subtotal")}: R$ {subtotal.toFixed(2)}
                 </div>
               </div>
             );
@@ -117,7 +95,7 @@ export default function BudgetDemo() {
 
         <hr />
         <div style={{ textAlign: "right", fontSize: 18, fontWeight: 800 }}>
-          Total: R$ {total.toFixed(2)}
+          {t("demo.budget.total")}: R$ {total.toFixed(2)}
         </div>
       </div>
     </div>

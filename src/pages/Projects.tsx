@@ -1,8 +1,10 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
+import { useTranslation } from "react-i18next";
 
 export default function Projects() {
+  const { t } = useTranslation();
   const [query, setQuery] = useState("");
   const [tag, setTag] = useState("");
 
@@ -15,39 +17,39 @@ export default function Projects() {
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return projects.filter((p) => {
+      const title = t(`caseStudies.${p.slug}.title`).toLowerCase();
+      const oneLiner = t(`caseStudies.${p.slug}.oneLiner`).toLowerCase();
       const hitQuery =
         !q ||
-        p.title.toLowerCase().includes(q) ||
-        p.oneLiner.toLowerCase().includes(q) ||
+        title.includes(q) ||
+        oneLiner.includes(q) ||
         p.stack.join(" ").toLowerCase().includes(q);
       const hitTag = !tag || p.stack.includes(tag);
       return hitQuery && hitTag;
     });
-  }, [query, tag]);
+  }, [query, tag, t]);
 
   return (
     <div className="grid">
-      <div className="row" style={{ justifyContent: "space-between" }}>
-        <div>
-          <h1 style={{ margin: 0 }}>Projetos</h1>
-          <p className="muted" style={{ marginTop: 6 }}>
-            Case studies com problema → solução → impacto.
-          </p>
-        </div>
+      <div>
+        <h1 style={{ margin: 0 }}>{t("projectsPage.title")}</h1>
+        <p className="muted" style={{ marginTop: 6 }}>
+          {t("projectsPage.subtitle")}
+        </p>
       </div>
 
       <div className="row">
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Buscar por stack, projeto, feature…"
+          placeholder={t("projectsPage.searchPlaceholder")}
           style={{ flex: 1, minWidth: 240 }}
         />
         <select value={tag} onChange={(e) => setTag(e.target.value)}>
-          <option value="">Todas as stacks</option>
-          {tags.map((t) => (
-            <option key={t} value={t}>
-              {t}
+          <option value="">{t("projectsPage.allStacks")}</option>
+          {tags.map((tg) => (
+            <option key={tg} value={tg}>
+              {tg}
             </option>
           ))}
         </select>
@@ -61,8 +63,11 @@ export default function Projects() {
             style={{ textDecoration: "none" }}
           >
             <div className="card">
-              <h3 style={{ marginTop: 0 }}>{p.title}</h3>
-              <p className="muted">{p.oneLiner}</p>
+              <h3 style={{ marginTop: 0 }}>
+                {t(`caseStudies.${p.slug}.title`)}
+              </h3>
+              <p className="muted">{t(`caseStudies.${p.slug}.oneLiner`)}</p>
+
               <div className="row" style={{ gap: 8 }}>
                 {p.stack.slice(0, 7).map((s) => (
                   <span key={s} className="pill">

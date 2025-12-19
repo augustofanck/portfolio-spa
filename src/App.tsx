@@ -6,7 +6,7 @@ import ProjectDetail from "./pages/ProjectDetail";
 import Demos from "./pages/Demos";
 import BudgetDemo from "./pages/demos/BudgetDemo";
 import AsyncSearchDemo from "./pages/demos/AsyncSearchDemo";
-import PaymentStatusDemo from "./pages/demos/PaymentStatus";
+import PaymentStatusDemo from "./pages/demos/PaymentStatusDemo";
 import Engineering from "./pages/Engineering";
 import NotFound from "./pages/NotFound";
 
