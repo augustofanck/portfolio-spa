@@ -1,12 +1,12 @@
 {
-  "nav": { "home": "Home", "projects": "Projects", "demos": "Demos", "eng": "Engineering" },
+  "nav": { "home": "Home", "projects": "Projects", "demos": "Demos", "eng": "Engineering", "identity": "Junior Developer (Product + Integrations)" },
   "ui": { "theme": "Theme", "light": "Light", "dark": "Dark", "lang": "Language", "pt": "PT-BR", "en": "EN" },
   "brand": { "subtitle": "Junior Dev (Product + Integrations)" },
   "footer": { "left": "© {{year}} • Portfolio", "right": "Built with React + Vite + Vercel" },
 
   "home": {
     "title": "Portfolio",
-    "subtitle": "product-minded developer",
+    "subtitle": "Full-Stack Junior Developer",
     "desc": "I build end-to-end business flows: data consistency, integrations, and UX that doesn't break operations.",
     "ctaProjects": "View projects",
     "ctaDemos": "View demos",

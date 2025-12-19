@@ -41,8 +41,8 @@ export default function NavBar() {
         >
           {/* Esquerda: identidade */}
           <div className="row" style={{ gap: 10 }}>
-            <strong style={{ letterSpacing: -0.2 }}>Seu Nome</strong>
-            <span className="muted">• Dev Pleno (Produto + Integrações)</span>
+            <strong style={{ letterSpacing: -0.2 }}>Augusto Fanck</strong>
+            <span className="muted">{t("nav.identity")}</span>
           </div>
 
           {/* Centro: navegação */}
@@ -82,6 +82,14 @@ export default function NavBar() {
               aria-label={t("ui.lang")}
             >
               {i18n.language === "ptBR" ? "PT" : "EN"}
+            </button>
+
+            <button
+              className="ghost btn-sm"
+              // onClick={openGitHub}
+              title={t("ui.github")}
+              aria-label={t("ui.github")}>
+                {/* {i18n.} */}
             </button>
           </div>
         </div>

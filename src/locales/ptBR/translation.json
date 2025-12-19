@@ -1,5 +1,5 @@
 {
-  "nav": { "home": "Home", "projects": "Projetos", "demos": "Demos", "eng": "Engenharia" },
+  "nav": { "home": "Home", "projects": "Projetos", "demos": "Demos", "eng": "Engenharia", "identity": "• Desenvolvedor Júnior (Produto + Integrações)" },
   "ui": {
     "theme": "Tema",
     "light": "Claro",
@@ -9,7 +9,7 @@
     "en": "EN"
   },
   "brand": {
-    "subtitle": "Dev Junior (Produto + Integrações)"
+    "subtitle": "Desenvolvedor Júnior (Produto + Integrações)"
   },
   "footer": {
     "left": "© {{year}} • Portfólio",
