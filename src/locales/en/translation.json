@@ -1,6 +1,6 @@
 {
   "nav": { "home": "Home", "projects": "Projects", "demos": "Demos", "eng": "Engineering", "identity": "Junior Developer (Product + Integrations)" },
-  "ui": { "theme": "Theme", "light": "Light", "dark": "Dark", "lang": "Language", "pt": "PT-BR", "en": "EN" },
+  "ui": { "theme": "Theme", "light": "Light", "dark": "Dark", "lang": "Language", "pt": "PT-BR", "en": "EN", "github": "GitHub" },
   "brand": { "subtitle": "Junior Dev (Product + Integrations)" },
   "footer": { "left": "© {{year}} • Portfolio", "right": "Built with React + Vite + Vercel" },
 

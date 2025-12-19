@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
+import { FaGithub } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import i18n from "../i18n";
 
@@ -15,6 +16,8 @@ const linkStyle = ({ isActive }: { isActive: boolean }) => ({
 export default function NavBar() {
   const { theme, toggle } = useTheme();
   const { t } = useTranslation();
+
+  const GITHUB_URL = "https://github.com/augustofanck";
 
   function toggleLang() {
     const next = i18n.language === "ptBR" ? "en" : "ptBR";
@@ -84,13 +87,22 @@ export default function NavBar() {
               {i18n.language === "ptBR" ? "PT" : "EN"}
             </button>
 
-            <button
-              className="ghost btn-sm"
-              // onClick={openGitHub}
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noreferrer"
               title={t("ui.github")}
-              aria-label={t("ui.github")}>
-                {/* {i18n.} */}
-            </button>
+              aria-label={t("ui.github")}
+              style={{ textDecoration: "none" }}
+            >
+              <button
+                type="button"
+                className="ghost btn-sm"
+                aria-label={t("ui.github")}
+              >
+                <FaGithub size={16} />
+              </button>
+            </a>
           </div>
         </div>
       </div>
