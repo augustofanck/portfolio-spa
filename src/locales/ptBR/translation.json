@@ -7,7 +7,13 @@
     "lang": "Idioma",
     "pt": "PT-BR",
     "en": "EN",
-    "github": "GitHub"
+    "github": "GitHub",
+    "...": "",
+    "close": "Fechar"
+  },
+  "modal": {
+    "demoUnavailableTitle": "Demo indisponível",
+    "demoUnavailableBody": "Ainda não há uma demo publicada para este projeto."
   },
   "brand": {
     "subtitle": "Desenvolvedor Júnior (Produto + Integrações)"

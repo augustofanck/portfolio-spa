@@ -1,6 +1,10 @@
 {
   "nav": { "home": "Home", "projects": "Projects", "demos": "Demos", "eng": "Engineering", "identity": "Junior Developer (Product + Integrations)" },
-  "ui": { "theme": "Theme", "light": "Light", "dark": "Dark", "lang": "Language", "pt": "PT-BR", "en": "EN", "github": "GitHub" },
+  "ui": { "theme": "Theme", "light": "Light", "dark": "Dark", "lang": "Language", "pt": "PT-BR", "en": "EN", "github": "GitHub", "...": "", "close": "Close" },
+  "modal": {
+    "demoUnavailableTitle": "Demo unavailable",
+    "demoUnavailableBody": "There is no published demo for this project yet."
+  },
   "brand": { "subtitle": "Junior Dev (Product + Integrations)" },
   "footer": { "left": "© {{year}} • Portfolio", "right": "Built with React + Vite + Vercel" },
 

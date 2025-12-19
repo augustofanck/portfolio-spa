@@ -21,7 +21,7 @@ export const projects: Project[] = [
       { key: "repo", url: "https://github.com/augustofanck/estoque-ci4" },
       {
         key: "demo",
-        url: "https://estoque-ci4.vercel.app/projects/estoque-ci4",
+        url: "",
       },
     ],
   },

@@ -1,11 +1,13 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { projects } from "../data/projects";
 import { useTranslation } from "react-i18next";
+import Modal from "../components/Modal";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
   const { t } = useTranslation();
+  const [demoModalOpen, setDemoModalOpen] = useState(false);
 
   const project = useMemo(() => projects.find((p) => p.slug === slug), [slug]);
 
@@ -75,15 +77,42 @@ export default function ProjectDetail() {
         ) : null}
 
         <h3>{t("projectDetail.links")}</h3>
+
         <div className="row">
-          {project.links.map((l) => (
-            <a key={l.url} href={l.url} target="_blank" rel="noreferrer">
-              <button className="ghost">
-                {t(`caseStudies.${project.slug}.links.${l.key}`)}
-              </button>
-            </a>
-          ))}
+          {project.links.map((l) => {
+            const label = t(`caseStudies.${project.slug}.links.${l.key}`);
+
+            if (l.key === "demo" && !l.url) {
+              return (
+                <button
+                  key={l.key}
+                  type="button"
+                  className="ghost"
+                  onClick={() => setDemoModalOpen(true)}
+                >
+                  {label}
+                </button>
+              );
+            }
+
+            return (
+              <a key={l.url} href={l.url} target="_blank" rel="noreferrer">
+                <button type="button" className="ghost">
+                  {label}
+                </button>
+              </a>
+            );
+          })}
         </div>
+
+        <Modal
+          open={demoModalOpen}
+          title={t("modal.demoUnavailableTitle")}
+          closeLabel={t("ui.close")}
+          onClose={() => setDemoModalOpen(false)}
+        >
+          {t("modal.demoUnavailableBody")}
+        </Modal>
 
         <hr />
         <Link to="/projects">← {t("projectDetail.backProjects")}</Link>
