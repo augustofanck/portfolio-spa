@@ -17,11 +17,11 @@ export default function Home() {
         </p>
 
         <div className="row" style={{ marginTop: 16 }}>
-          <Link to="/projects">
-            <button className="primary">{t("home.ctaProjects")}</button>
+          <Link to="/projects" className="button-link primary">
+            {t("home.ctaProjects")}
           </Link>
-          <Link to="/demos">
-            <button className="ghost">{t("home.ctaDemos")}</button>
+          <Link to="/demos" className="button-link ghost">
+            {t("home.ctaDemos")}
           </Link>
         </div>
       </section>

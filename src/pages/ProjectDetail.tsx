@@ -96,10 +96,14 @@ export default function ProjectDetail() {
             }
 
             return (
-              <a key={l.url} href={l.url} target="_blank" rel="noreferrer">
-                <button type="button" className="ghost">
-                  {label}
-                </button>
+              <a
+                key={l.url}
+                href={l.url}
+                target="_blank"
+                rel="noreferrer"
+                className="button-link ghost"
+              >
+                {label}
               </a>
             );
           })}

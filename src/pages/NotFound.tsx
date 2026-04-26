@@ -8,8 +8,8 @@ export default function NotFound() {
     <div className="card">
       <h1 style={{ marginTop: 0 }}>{t("notFound.title")}</h1>
       <p className="muted">{t("notFound.desc")}</p>
-      <Link to="/">
-        <button className="ghost">{t("notFound.backHome")}</button>
+      <Link to="/" className="button-link ghost">
+        {t("notFound.backHome")}
       </Link>
     </div>
   );

@@ -43,13 +43,9 @@ export default function AsyncSearchDemo() {
 
   useEffect(() => {
     if (debounced.length < 2) {
-      setItems([]);
-      setHasMore(false);
-      setPage(1);
       return;
     }
 
-    setLoading(true);
     fakeApi(label, debounced, page).then((res) => {
       setItems((prev) => (page === 1 ? res.items : [...prev, ...res.items]));
       setHasMore(res.hasMore);
@@ -58,6 +54,8 @@ export default function AsyncSearchDemo() {
   }, [debounced, page, label]);
 
   const canSearch = useMemo(() => debounced.length >= 2, [debounced]);
+  const visibleItems = canSearch ? items : [];
+  const visibleHasMore = canSearch && hasMore;
 
   return (
     <div className="card">
@@ -67,8 +65,10 @@ export default function AsyncSearchDemo() {
       <input
         value={term}
         onChange={(e) => {
-          setTerm(e.target.value);
+          const nextTerm = e.target.value;
+          setTerm(nextTerm);
           setPage(1);
+          setLoading(nextTerm.trim().length >= 2);
         }}
         placeholder={t("demo.async.placeholder")}
       />
@@ -77,7 +77,7 @@ export default function AsyncSearchDemo() {
         {!canSearch && <div className="muted">{t("demo.async.type2")}</div>}
         {loading && <div className="muted">{t("demo.async.loading")}</div>}
 
-        {items.map((it) => (
+        {visibleItems.map((it) => (
           <div key={it.id} className="card" style={{ padding: 12 }}>
             <strong>{it.text}</strong>
             <div className="muted">
@@ -87,8 +87,15 @@ export default function AsyncSearchDemo() {
           </div>
         ))}
 
-        {hasMore && !loading && (
-          <button onClick={() => setPage((p) => p + 1)} className="ghost">
+        {visibleHasMore && !loading && (
+          <button
+            type="button"
+            onClick={() => {
+              setLoading(true);
+              setPage((p) => p + 1);
+            }}
+            className="ghost"
+          >
             {t("demo.async.loadMore")}
           </button>
         )}

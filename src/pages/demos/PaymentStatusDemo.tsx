@@ -30,13 +30,25 @@ export default function PaymentStatusDemo() {
       <p className="muted">{t("demo.payment.desc")}</p>
 
       <div className="row">
-        <button onClick={() => setStatus("approved")} className="ghost">
+        <button
+          type="button"
+          onClick={() => setStatus("approved")}
+          className="ghost"
+        >
           {t("demo.payment.statusApproved")}
         </button>
-        <button onClick={() => setStatus("pending")} className="ghost">
+        <button
+          type="button"
+          onClick={() => setStatus("pending")}
+          className="ghost"
+        >
           {t("demo.payment.statusPending")}
         </button>
-        <button onClick={() => setStatus("failed")} className="ghost">
+        <button
+          type="button"
+          onClick={() => setStatus("failed")}
+          className="ghost"
+        >
           {t("demo.payment.statusFailed")}
         </button>
       </div>
@@ -47,8 +59,12 @@ export default function PaymentStatusDemo() {
       <p className="muted">{copy[status].msg}</p>
 
       <div className="row" style={{ marginTop: 12 }}>
-        <button className="primary">{t("demo.payment.primaryAction")}</button>
-        <button className="ghost">{t("demo.payment.secondaryAction")}</button>
+        <button type="button" className="primary">
+          {t("demo.payment.primaryAction")}
+        </button>
+        <button type="button" className="ghost">
+          {t("demo.payment.secondaryAction")}
+        </button>
       </div>
     </div>
   );

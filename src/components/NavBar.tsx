@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "../hooks/useTheme";
 import { FaGithub } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import i18n from "../i18n";
@@ -70,6 +70,7 @@ export default function NavBar() {
           {/* Direita: botões pequenos (tema/idioma) */}
           <div className="row" style={{ justifyContent: "flex-end" }}>
             <button
+              type="button"
               className="ghost btn-sm"
               onClick={toggle}
               title={t("ui.theme")}
@@ -79,6 +80,7 @@ export default function NavBar() {
             </button>
 
             <button
+              type="button"
               className="ghost btn-sm"
               onClick={toggleLang}
               title={t("ui.lang")}
@@ -93,15 +95,9 @@ export default function NavBar() {
               rel="noreferrer"
               title={t("ui.github")}
               aria-label={t("ui.github")}
-              style={{ textDecoration: "none" }}
+              className="button-link ghost btn-sm"
             >
-              <button
-                type="button"
-                className="ghost btn-sm"
-                aria-label={t("ui.github")}
-              >
-                <FaGithub size={16} />
-              </button>
+              <FaGithub size={16} />
             </a>
           </div>
         </div>

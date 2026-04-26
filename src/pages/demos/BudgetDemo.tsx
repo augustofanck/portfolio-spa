@@ -60,7 +60,7 @@ export default function BudgetDemo() {
         <h1 style={{ marginTop: 0 }}>{t("demo.budget.title")}</h1>
         <p className="muted">{t("demo.budget.desc")}</p>
 
-        <button className="primary" onClick={add}>
+        <button type="button" className="primary" onClick={add}>
           {t("demo.budget.add")}
         </button>
 
@@ -78,7 +78,7 @@ export default function BudgetDemo() {
                     onChange={(e) => update(i, { name: e.target.value })}
                     style={{ flex: 1, minWidth: 220 }}
                   />
-                  <button onClick={() => remove(i)}>
+                  <button type="button" onClick={() => remove(i)}>
                     {t("demo.budget.remove")}
                   </button>
                 </div>

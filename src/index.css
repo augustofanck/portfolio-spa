@@ -86,7 +86,7 @@ a { color: inherit; }
 
 .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
 
-input, select, button, textarea {
+input, select, button, textarea, .button-link {
   font: inherit;
   padding: 10px 12px;
   border-radius: 12px;
@@ -97,13 +97,25 @@ input, select, button, textarea {
 
 button { cursor: pointer; }
 
-button.primary {
+button.primary,
+.button-link.primary {
   border-color: var(--text);
   background: var(--text);
   color: var(--bg);
 }
 
-button.ghost { background: transparent; }
+button.ghost,
+.button-link.ghost {
+  background: transparent;
+}
+
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+}
 
 hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
 
