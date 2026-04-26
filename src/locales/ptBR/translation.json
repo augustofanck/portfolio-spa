@@ -1,5 +1,11 @@
 {
-  "nav": { "home": "Home", "projects": "Projetos", "demos": "Demos", "eng": "Engenharia", "identity": "• Desenvolvedor Júnior (Produto + Integrações)" },
+  "nav": {
+    "home": "Home",
+    "projects": "Projetos",
+    "demos": "Demos",
+    "eng": "Engenharia",
+    "identity": "• Desenvolvedor Júnior (Produto + Integrações)"
+  },
   "ui": {
     "theme": "Tema",
     "light": "Claro",
@@ -24,17 +30,42 @@
   },
 
   "home": {
-    "title": "Portfólio",
-    "subtitle": "Desenvolvedor Júnior Full-Stack",
-    "desc": "Eu construo fluxo de negócio de ponta a ponta: consistência de dados, integrações e UX que não dá dor de cabeça na operação.",
+    "eyebrow": "Produto + integrações + sistemas internos",
+    "titleStart": "Augusto Fanck cria fluxos digitais que",
+    "titleHighlight": "organizam operações",
+    "desc": "Eu construo fluxos de negócio de ponta a ponta: consistência de dados, integrações e UX que não dá dor de cabeça na operação.",
     "ctaProjects": "Ver projetos",
     "ctaDemos": "Ver demos",
+
+    "focusAreas": [
+      "Sistemas internos",
+      "Integrações",
+      "Formulários complexos",
+      "UX operacional"
+    ],
+
+    "workEyebrow": "Como eu trabalho",
+    "workTitle": "Eu gosto de transformar regra de negócio confusa em interface previsível.",
+    "workDesc": "Meu foco atual está em aplicações full-stack, consistência de dados, integrações e experiências que ajudam a operação a errar menos.",
+
     "deliverTitle": "O que eu entrego",
-    "deliver1": "Formulários complexos com payload consistente",
-    "deliver2": "Busca assíncrona e performance de UI",
-    "deliver3": "Integrações (pagamento, auth, dados)",
+    "deliverItems": [
+      "Formulários complexos com payload consistente",
+      "Busca assíncrona e performance de UI",
+      "Integrações com autenticação, pagamento e dados"
+    ],
+
     "thinkTitle": "Como eu penso",
-    "thinkDesc": "Menos “funcionou aqui”, mais “aguenta produção”: validação, anti-duplicidade, estados e evolução sem quebrar o que já existe."
+    "thinkDesc": "Menos “funcionou aqui”, mais “aguenta produção”: validação, anti-duplicidade, estados e evolução sem quebrar o que já existe.",
+
+    "proofEyebrow": "Provas práticas",
+    "proofTitle": "O portfólio não fica só no discurso.",
+    "proofDesc": "Além dos projetos, mantenho demos pequenas para demonstrar decisões de estado, validação, busca assíncrona e UX para integrações.",
+
+    "proofProjectsEyebrow": "Case studies",
+    "proofDemosEyebrow": "Laboratório técnico",
+    "proofEngineeringEyebrow": "Notas e decisões",
+    "proofEngineeringDesc": "Escrita curta sobre padrões, decisões e aprendizados aplicados nos projetos."
   },
 
   "projectsPage": {

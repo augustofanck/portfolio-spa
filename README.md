@@ -4,16 +4,18 @@ Portfólio em formato SPA feito com **React + Vite + TypeScript**, com rotas par
 Deploy pensado para **Vercel** e versionamento via **GitHub**.
 
 ## Stack
+
 - React + TypeScript
 - Vite
 - React Router
 - (Opcional) React Markdown (para a página de Engineering Notes)
 
 ## Rodar localmente
+
 ```bash
 npm install
 npm run dev
-````
+```
 
 ## Build
 
@@ -24,5 +26,5 @@ npm run preview
 
 ## Deploy (Vercel)
 
-* Importar o repositório no Vercel e fazer deploy.
-* O projeto inclui `vercel.json` com rewrite para evitar 404 em rotas do React Router.
+- Importar o repositório no Vercel e fazer deploy.
+- O projeto inclui `vercel.json` com rewrite para evitar 404 em rotas do React Router.
