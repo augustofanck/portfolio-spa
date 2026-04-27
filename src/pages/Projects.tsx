@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { projects } from "../data/projects";
 import { useTranslation } from "react-i18next";
+import { projects } from "../data/projects";
 
 export default function Projects() {
   const { t } = useTranslation();
@@ -10,75 +10,113 @@ export default function Projects() {
 
   const tags = useMemo(() => {
     const all = new Set<string>();
-    projects.forEach((p) => p.stack.forEach((s) => all.add(s)));
+
+    projects.forEach((project) => {
+      project.stack.forEach((stack) => all.add(stack));
+    });
+
     return Array.from(all).sort();
   }, []);
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return projects.filter((p) => {
-      const title = t(`caseStudies.${p.slug}.title`).toLowerCase();
-      const oneLiner = t(`caseStudies.${p.slug}.oneLiner`).toLowerCase();
-      const hitQuery =
-        !q ||
-        title.includes(q) ||
-        oneLiner.includes(q) ||
-        p.stack.join(" ").toLowerCase().includes(q);
-      const hitTag = !tag || p.stack.includes(tag);
-      return hitQuery && hitTag;
+    const normalizedQuery = query.trim().toLowerCase();
+
+    return projects.filter((project) => {
+      const title = t(`caseStudies.${project.slug}.title`).toLowerCase();
+      const oneLiner = t(`caseStudies.${project.slug}.oneLiner`).toLowerCase();
+      const stack = project.stack.join(" ").toLowerCase();
+
+      const matchesQuery =
+        !normalizedQuery ||
+        title.includes(normalizedQuery) ||
+        oneLiner.includes(normalizedQuery) ||
+        stack.includes(normalizedQuery);
+
+      const matchesTag = !tag || project.stack.includes(tag);
+
+      return matchesQuery && matchesTag;
     });
   }, [query, tag, t]);
 
   return (
-    <div className="grid">
-      <div>
-        <h1 style={{ margin: 0 }}>{t("projectsPage.title")}</h1>
-        <p className="muted" style={{ marginTop: 6 }}>
-          {t("projectsPage.subtitle")}
-        </p>
-      </div>
+    <div>
+      <section className="section">
+        <div className="section-header">
+          <p className="eyebrow">{t("projectsPage.eyebrow")}</p>
+          <h1 style={{ margin: 0 }}>{t("projectsPage.title")}</h1>
+          <p className="muted lede" style={{ margin: 0 }}>
+            {t("projectsPage.subtitle")}
+          </p>
+        </div>
 
-      <div className="row">
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder={t("projectsPage.searchPlaceholder")}
-          style={{ flex: 1, minWidth: 240 }}
-        />
-        <select value={tag} onChange={(e) => setTag(e.target.value)}>
-          <option value="">{t("projectsPage.allStacks")}</option>
-          {tags.map((tg) => (
-            <option key={tg} value={tg}>
-              {tg}
-            </option>
-          ))}
-        </select>
-      </div>
+        <div className="project-toolbar">
+          <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={t("projectsPage.searchPlaceholder")}
+            aria-label={t("projectsPage.searchPlaceholder")}
+          />
 
-      <div className="grid-cards">
-        {filtered.map((p) => (
-          <Link
-            key={p.slug}
-            to={`/projects/${p.slug}`}
-            style={{ textDecoration: "none" }}
+          <select
+            value={tag}
+            onChange={(event) => setTag(event.target.value)}
+            aria-label={t("projectsPage.allStacks")}
           >
-            <div className="card">
-              <h3 style={{ marginTop: 0 }}>
-                {t(`caseStudies.${p.slug}.title`)}
-              </h3>
-              <p className="muted">{t(`caseStudies.${p.slug}.oneLiner`)}</p>
+            <option value="">{t("projectsPage.allStacks")}</option>
 
-              <div className="row" style={{ gap: 8 }}>
-                {p.stack.slice(0, 7).map((s) => (
-                  <span key={s} className="pill">
-                    {s}
+            {tags.map((currentTag) => (
+              <option key={currentTag} value={currentTag}>
+                {currentTag}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {filtered.length > 0 ? (
+          <div className="project-grid">
+            {filtered.map((project) => (
+              <Link
+                key={project.slug}
+                to={`/projects/${project.slug}`}
+                className="card interactive-card project-card"
+              >
+                <article>
+                  <div className="project-card-topline">
+                    <span className="pill">Case study</span>
+                    <span className="muted">{project.stack[0]}</span>
+                  </div>
+
+                  <h2 className="project-card-title">
+                    {t(`caseStudies.${project.slug}.title`)}
+                  </h2>
+
+                  <p className="muted project-card-copy">
+                    {t(`caseStudies.${project.slug}.oneLiner`)}
+                  </p>
+
+                  <div className="row" style={{ gap: 8 }}>
+                    {project.stack.slice(0, 6).map((stack) => (
+                      <span key={stack} className="pill">
+                        {stack}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="project-card-link">
+                    {t("projectsPage.viewCase")}
                   </span>
-                ))}
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+                </article>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <div className="card empty-state">
+            <p className="eyebrow">{t("projectsPage.emptyTitle")}</p>
+            <p className="muted" style={{ margin: 0 }}>
+              {t("projectsPage.emptyDesc")}
+            </p>
+          </div>
+        )}
+      </section>
     </div>
   );
 }
