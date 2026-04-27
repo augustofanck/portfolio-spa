@@ -86,13 +86,17 @@
   "projectDetail": {
     "notFoundTitle": "Projeto não encontrado",
     "backProjects": "Voltar para projetos",
+    "eyebrow": "Case study",
     "problem": "Problema",
     "solution": "Solução",
     "highlights": "Destaques",
     "metrics": "Métricas",
-    "links": "Links"
+    "links": "Links",
+    "overview": "Visão geral",
+    "stack": "Stack",
+    "openLink": "Abrir link",
+    "backLabel": "Todos os projetos"
   },
-
   "demosPage": {
     "title": "Demos",
     "subtitle": "Mini-apps pra provar habilidade na prática, sem PowerPoint.",

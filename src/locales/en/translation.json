@@ -84,11 +84,16 @@
   "projectDetail": {
     "notFoundTitle": "Project not found",
     "backProjects": "Back to projects",
+    "eyebrow": "Case study",
     "problem": "Problem",
     "solution": "Solution",
     "highlights": "Highlights",
     "metrics": "Metrics",
-    "links": "Links"
+    "links": "Links",
+    "overview": "Overview",
+    "stack": "Stack",
+    "openLink": "Open link",
+    "backLabel": "All projects"
   },
 
   "demosPage": {

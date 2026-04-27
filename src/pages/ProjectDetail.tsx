@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { projects } from "../data/projects";
 import { useTranslation } from "react-i18next";
+import { projects } from "../data/projects";
 import Modal from "../components/Modal";
 
 export default function ProjectDetail() {
@@ -9,118 +9,159 @@ export default function ProjectDetail() {
   const { t } = useTranslation();
   const [demoModalOpen, setDemoModalOpen] = useState(false);
 
-  const project = useMemo(() => projects.find((p) => p.slug === slug), [slug]);
+  const project = useMemo(
+    () => projects.find((item) => item.slug === slug),
+    [slug]
+  );
 
   if (!project) {
     return (
-      <div className="card">
-        <h2 style={{ marginTop: 0 }}>{t("projectDetail.notFoundTitle")}</h2>
-        <Link to="/projects">{t("projectDetail.backProjects")}</Link>
-      </div>
+      <section className="section">
+        <div className="card empty-state">
+          <p className="eyebrow">404</p>
+          <h1 style={{ marginTop: 0 }}>{t("projectDetail.notFoundTitle")}</h1>
+          <Link to="/projects" className="button-link ghost">
+            {t("projectDetail.backProjects")}
+          </Link>
+        </div>
+      </section>
     );
   }
 
   const solution = t(`caseStudies.${project.slug}.solution`, {
     returnObjects: true,
   }) as string[];
+
   const highlights = t(`caseStudies.${project.slug}.highlights`, {
     returnObjects: true,
   }) as string[];
+
   const metrics = t(`caseStudies.${project.slug}.metrics`, {
     returnObjects: true,
   }) as string[];
 
   return (
-    <div className="grid">
-      <div className="card">
-        <h1 style={{ marginTop: 0 }}>
+    <div>
+      <section className="project-detail-hero">
+        <Link to="/projects" className="project-back-link">
+          ← {t("projectDetail.backLabel")}
+        </Link>
+
+        <p className="eyebrow">{t("projectDetail.eyebrow")}</p>
+
+        <h1 className="project-detail-title">
           {t(`caseStudies.${project.slug}.title`)}
         </h1>
-        <p className="muted">{t(`caseStudies.${project.slug}.oneLiner`)}</p>
 
-        <div className="row" style={{ gap: 8, marginTop: 10 }}>
-          {project.stack.map((s) => (
-            <span key={s} className="pill">
-              {s}
+        <p className="hero-copy">{t(`caseStudies.${project.slug}.oneLiner`)}</p>
+
+        <div className="row" style={{ gap: 8 }}>
+          {project.stack.map((stack) => (
+            <span key={stack} className="pill">
+              {stack}
             </span>
           ))}
         </div>
+      </section>
 
-        <hr />
+      <section className="project-detail-layout">
+        <article className="card project-case">
+          <div className="case-section">
+            <p className="eyebrow">{t("projectDetail.problem")}</p>
+            <p className="case-copy">
+              {t(`caseStudies.${project.slug}.problem`)}
+            </p>
+          </div>
 
-        <h3>{t("projectDetail.problem")}</h3>
-        <p className="muted">{t(`caseStudies.${project.slug}.problem`)}</p>
-
-        <h3>{t("projectDetail.solution")}</h3>
-        <ul className="muted">
-          {solution.map((x, i) => (
-            <li key={i}>{x}</li>
-          ))}
-        </ul>
-
-        <h3>{t("projectDetail.highlights")}</h3>
-        <ul className="muted">
-          {highlights.map((x, i) => (
-            <li key={i}>{x}</li>
-          ))}
-        </ul>
-
-        {metrics?.length ? (
-          <>
-            <h3>{t("projectDetail.metrics")}</h3>
-            <ul className="muted">
-              {metrics.map((x, i) => (
-                <li key={i}>{x}</li>
+          <div className="case-section">
+            <p className="eyebrow">{t("projectDetail.solution")}</p>
+            <ul className="case-list">
+              {solution.map((item) => (
+                <li key={item}>{item}</li>
               ))}
             </ul>
-          </>
-        ) : null}
+          </div>
 
-        <h3>{t("projectDetail.links")}</h3>
+          <div className="case-section">
+            <p className="eyebrow">{t("projectDetail.highlights")}</p>
+            <ul className="case-list">
+              {highlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
 
-        <div className="row">
-          {project.links.map((l) => {
-            const label = t(`caseStudies.${project.slug}.links.${l.key}`);
+          {metrics.length > 0 ? (
+            <div className="case-section">
+              <p className="eyebrow">{t("projectDetail.metrics")}</p>
+              <ul className="case-list">
+                {metrics.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+        </article>
 
-            if (l.key === "demo" && !l.url) {
-              return (
-                <button
-                  key={l.key}
-                  type="button"
-                  className="ghost"
-                  onClick={() => setDemoModalOpen(true)}
-                >
-                  {label}
-                </button>
-              );
-            }
+        <aside className="project-sidebar">
+          <div className="card">
+            <p className="eyebrow">{t("projectDetail.stack")}</p>
+            <div className="row" style={{ gap: 8, marginTop: 8 }}>
+              {project.stack.map((stack) => (
+                <span key={stack} className="pill">
+                  {stack}
+                </span>
+              ))}
+            </div>
+          </div>
 
-            return (
-              <a
-                key={l.url}
-                href={l.url}
-                target="_blank"
-                rel="noreferrer"
-                className="button-link ghost"
-              >
-                {label}
-              </a>
-            );
-          })}
-        </div>
+          <div className="card">
+            <p className="eyebrow">{t("projectDetail.links")}</p>
 
-        <Modal
-          open={demoModalOpen}
-          title={t("modal.demoUnavailableTitle")}
-          closeLabel={t("ui.close")}
-          onClose={() => setDemoModalOpen(false)}
-        >
-          {t("modal.demoUnavailableBody")}
-        </Modal>
+            <div className="project-link-list" style={{ marginTop: 8 }}>
+              {project.links.map((link) => {
+                const label = t(
+                  `caseStudies.${project.slug}.links.${link.key}`
+                );
 
-        <hr />
-        <Link to="/projects">← {t("projectDetail.backProjects")}</Link>
-      </div>
+                if (link.key === "demo" && !link.url) {
+                  return (
+                    <button
+                      key={link.key}
+                      type="button"
+                      className="ghost"
+                      onClick={() => setDemoModalOpen(true)}
+                    >
+                      {label}
+                    </button>
+                  );
+                }
+
+                return (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="button-link ghost"
+                  >
+                    {label}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <Modal
+        open={demoModalOpen}
+        title={t("modal.demoUnavailableTitle")}
+        closeLabel={t("ui.close")}
+        onClose={() => setDemoModalOpen(false)}
+      >
+        {t("modal.demoUnavailableBody")}
+      </Modal>
     </div>
   );
 }
