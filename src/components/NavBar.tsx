@@ -1,23 +1,20 @@
 import { NavLink } from "react-router-dom";
-import { useTheme } from "../hooks/useTheme";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaMoon, FaSun } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "../hooks/useTheme";
+import { profile } from "../data/profile";
 import i18n from "../i18n";
 
-const linkStyle = ({ isActive }: { isActive: boolean }) => ({
-  textDecoration: "none",
-  padding: "10px 12px",
-  borderRadius: 12,
-  border: "1px solid var(--border)",
-  background: isActive ? "var(--text)" : "var(--surface)",
-  color: isActive ? "var(--bg)" : "var(--text)",
-});
+const navItems = [
+  { to: "/", labelKey: "nav.home" },
+  { to: "/projects", labelKey: "nav.projects" },
+  { to: "/demos", labelKey: "nav.demos" },
+  { to: "/engineering", labelKey: "nav.eng" },
+];
 
 export default function NavBar() {
   const { theme, toggle } = useTheme();
   const { t } = useTranslation();
-
-  const GITHUB_URL = "https://github.com/augustofanck";
 
   function toggleLang() {
     const next = i18n.language === "ptBR" ? "en" : "ptBR";
@@ -26,82 +23,64 @@ export default function NavBar() {
   }
 
   return (
-    <div
-      style={{
-        borderBottom: "1px solid var(--border)",
-        background: "var(--surface)",
-      }}
-    >
-      <div className="container" style={{ paddingTop: 16, paddingBottom: 16 }}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 12,
-            flexWrap: "wrap",
-          }}
-        >
-          {/* Esquerda: identidade */}
-          <div className="row" style={{ gap: 10 }}>
-            <strong style={{ letterSpacing: -0.2 }}>Augusto Fanck</strong>
-            <span className="muted">{t("nav.identity")}</span>
-          </div>
+    <header className="site-header">
+      <div className="container nav-shell">
+        <NavLink to="/" className="brand-link">
+          <span className="brand-mark">AF</span>
 
-          {/* Centro: navegação */}
-          <nav
-            className="row"
-            style={{ justifyContent: "center", flex: 1, minWidth: 260 }}
+          <span className="brand-copy">
+            <span className="brand-name">{profile.name}</span>
+            <span className="brand-role">{t("nav.identity")}</span>
+          </span>
+        </NavLink>
+
+        <nav className="nav-links" aria-label="Main navigation">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              {t(item.labelKey)}
+            </NavLink>
+          ))}
+        </nav>
+
+        <div className="nav-actions">
+          <button
+            type="button"
+            className="ghost btn-sm icon-button"
+            onClick={toggle}
+            title={t("ui.theme")}
+            aria-label={t("ui.theme")}
           >
-            <NavLink to="/" style={linkStyle}>
-              {t("nav.home")}
-            </NavLink>
-            <NavLink to="/projects" style={linkStyle}>
-              {t("nav.projects")}
-            </NavLink>
-            <NavLink to="/demos" style={linkStyle}>
-              {t("nav.demos")}
-            </NavLink>
-            <NavLink to="/engineering" style={linkStyle}>
-              {t("nav.eng")}
-            </NavLink>
-          </nav>
+            {theme === "dark" ? <FaMoon size={14} /> : <FaSun size={14} />}
+          </button>
 
-          {/* Direita: botões pequenos (tema/idioma) */}
-          <div className="row" style={{ justifyContent: "flex-end" }}>
-            <button
-              type="button"
-              className="ghost btn-sm"
-              onClick={toggle}
-              title={t("ui.theme")}
-              aria-label={t("ui.theme")}
-            >
-              {theme === "dark" ? "🌙" : "☀️"}
-            </button>
+          <button
+            type="button"
+            className="ghost btn-sm"
+            onClick={toggleLang}
+            title={t("ui.lang")}
+            aria-label={t("ui.lang")}
+          >
+            {i18n.language === "ptBR" ? "PT" : "EN"}
+          </button>
 
-            <button
-              type="button"
-              className="ghost btn-sm"
-              onClick={toggleLang}
-              title={t("ui.lang")}
-              aria-label={t("ui.lang")}
-            >
-              {i18n.language === "ptBR" ? "PT" : "EN"}
-            </button>
-
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noreferrer"
-              title={t("ui.github")}
-              aria-label={t("ui.github")}
-              className="button-link ghost btn-sm"
-            >
-              <FaGithub size={16} />
-            </a>
-          </div>
+          <a
+            href={profile.links.github}
+            target="_blank"
+            rel="noreferrer"
+            title={t("ui.github")}
+            aria-label={t("ui.github")}
+            className="button-link ghost btn-sm icon-button"
+          >
+            <FaGithub size={16} />
+          </a>
         </div>
       </div>
-    </div>
+    </header>
   );
 }

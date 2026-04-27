@@ -23,29 +23,63 @@
   },
   "brand": { "subtitle": "Junior Dev (Product + Integrations)" },
   "footer": {
-    "left": "© {{year}} • Portfolio",
-    "right": "Built with React + Vite + Vercel"
+    "left": "© {{year}} • Augusto Fanck",
+    "right": "Built with React, Vite, and TypeScript",
+    "headline": "A portfolio in continuous evolution.",
+    "desc": "A space to document projects, demos, and technical decisions while I deepen my work with product, integrations, and internal systems.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Email"
   },
 
   "home": {
-    "title": "Portfolio",
-    "subtitle": "Full-Stack Junior Developer",
-    "desc": "I build end-to-end business flows: data consistency, integrations, and UX that doesn't break operations.",
+    "eyebrow": "Product + integrations + internal systems",
+    "titleStart": "Augusto Fanck builds digital flows that",
+    "titleHighlight": "organize operations",
+    "desc": "I build end-to-end business flows: data consistency, integrations, and UX that does not create friction for operations.",
     "ctaProjects": "View projects",
     "ctaDemos": "View demos",
+
+    "focusAreas": [
+      "Internal systems",
+      "Integrations",
+      "Complex forms",
+      "Operational UX"
+    ],
+
+    "workEyebrow": "How I work",
+    "workTitle": "I like turning messy business rules into predictable interfaces.",
+    "workDesc": "My current focus is full-stack applications, data consistency, integrations, and experiences that help operations make fewer mistakes.",
+
     "deliverTitle": "What I deliver",
-    "deliver1": "Complex forms with consistent payloads",
-    "deliver2": "Async search and UI performance",
-    "deliver3": "Integrations (payments, auth, data)",
+    "deliverItems": [
+      "Complex forms with consistent payloads",
+      "Async search and UI performance",
+      "Integrations with auth, payments, and data"
+    ],
+
     "thinkTitle": "How I think",
-    "thinkDesc": "Less “works on my machine”, more “production-ready”: validation, anti-duplication, state handling, and safe evolution."
+    "thinkDesc": "Less “works on my machine”, more “ready for production”: validation, anti-duplication, state handling, and evolution without breaking what already exists.",
+
+    "proofEyebrow": "Practical proof",
+    "proofTitle": "This portfolio does not stay only in words.",
+    "proofDesc": "Besides projects, I keep small demos to demonstrate state decisions, validation, async search, and UX for integrations.",
+
+    "proofProjectsEyebrow": "Case studies",
+    "proofDemosEyebrow": "Technical lab",
+    "proofEngineeringEyebrow": "Notes and decisions",
+    "proofEngineeringDesc": "Short writing about patterns, decisions, and lessons applied across projects."
   },
 
   "projectsPage": {
     "title": "Projects",
     "subtitle": "Case studies with problem → solution → impact.",
-    "searchPlaceholder": "Search by stack, project, feature…",
-    "allStacks": "All stacks"
+    "eyebrow": "Selected projects",
+    "searchPlaceholder": "Search by stack, project, feature...",
+    "allStacks": "All stacks",
+    "viewCase": "View case",
+    "emptyTitle": "No projects found",
+    "emptyDesc": "Try adjusting the search or removing the stack filter."
   },
   "projectDetail": {
     "notFoundTitle": "Project not found",

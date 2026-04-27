@@ -4,7 +4,7 @@
     "projects": "Projetos",
     "demos": "Demos",
     "eng": "Engenharia",
-    "identity": "• Desenvolvedor Júnior (Produto + Integrações)"
+    "identity": "Desenvolvedor Júnior (Produto + Integrações)"
   },
   "ui": {
     "theme": "Tema",
@@ -25,8 +25,13 @@
     "subtitle": "Desenvolvedor Júnior (Produto + Integrações)"
   },
   "footer": {
-    "left": "© {{year}} • Portfólio",
-    "right": "Feito com React + Vite + Vercel"
+    "left": "© {{year}} • Augusto Fanck",
+    "right": "Construído com React, Vite e TypeScript",
+    "headline": "Portfólio em evolução contínua",
+    "desc": "Um espaço para documentar projetos, demos e decisões técnicas enquanto aprofundo meu trabalho com produto, integrações e sistemas internos.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Email"
   },
 
   "home": {
@@ -71,8 +76,12 @@
   "projectsPage": {
     "title": "Projetos",
     "subtitle": "Case studies com problema → solução → impacto.",
-    "searchPlaceholder": "Buscar por stack, projeto, feature…",
-    "allStacks": "Todas as stacks"
+    "eyebrow": "Projetos selecionados",
+    "searchPlaceholder": "Buscar por stack, projeto, feature...",
+    "allStacks": "Todas as stacks",
+    "viewCase": "Ver case",
+    "emptyTitle": "Nenhum projeto encontrado",
+    "emptyDesc": "Tente ajustar a busca ou remover o filtro de stack."
   },
   "projectDetail": {
     "notFoundTitle": "Projeto não encontrado",
