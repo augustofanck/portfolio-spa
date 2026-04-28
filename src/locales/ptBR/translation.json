@@ -162,7 +162,13 @@
       "errorTitle": "Falha ao buscar itens",
       "errorDesc": "Simulamos uma instabilidade. Tente novamente.",
       "retry": "Tentar novamente",
-      "simulateError": "Simular erro"
+      "simulateError": "Simular erro",
+      "mockSource": "Mock local",
+      "liveSource": "API pública",
+      "sourceLabel": "Fonte dos dados",
+      "liveHint": "Dados carregados de DummyJSON Products API.",
+      "mockHint": "Dados gerados localmente para testar estados previsíveis.",
+      "categoryDetected": "Categoria detectada"
     },
     "payment": {
       "title": "Demo — Estados de Pagamento",

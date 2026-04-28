@@ -160,7 +160,13 @@
       "errorTitle": "Failed to fetch items",
       "errorDesc": "We simulated an unstable request. Try again.",
       "retry": "Try again",
-      "simulateError": "Simulate error"
+      "simulateError": "Simulate error",
+      "mockSource": "Local mock",
+      "liveSource": "Public API",
+      "sourceLabel": "Data source",
+      "liveHint": "Data loaded from DummyJSON Products API.",
+      "mockHint": "Locally generated data for testing predictable states.",
+      "categoryDetected": "Detected category"
     },
     "payment": {
       "title": "Demo — Payment States",

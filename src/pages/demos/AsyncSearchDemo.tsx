@@ -15,7 +15,77 @@ type ApiResult = {
   hasMore: boolean;
 };
 
+type Source = "mock" | "live";
+
+type DummyProduct = {
+  id: number;
+  title: string;
+  category: string;
+  price: number;
+  stock: number;
+  sku?: string;
+};
+
+type DummyProductsResponse = {
+  products: DummyProduct[];
+  total: number;
+  skip: number;
+  limit: number;
+};
+
 const categories = ["Armação", "Lente", "Serviço", "Acessório"];
+
+const dummyCategories = [
+  "beauty",
+  "fragrances",
+  "furniture",
+  "groceries",
+  "home-decoration",
+  "kitchen-accessories",
+  "laptops",
+  "mens-shirts",
+  "mens-shoes",
+  "mens-watches",
+  "mobile-accessories",
+  "motorcycle",
+  "skin-care",
+  "smartphones",
+  "sports-accessories",
+  "sunglasses",
+  "tablets",
+  "tops",
+  "vehicle",
+  "womens-bags",
+  "womens-dresses",
+  "womens-jewellery",
+  "womens-shoes",
+  "womens-watches",
+];
+
+function normalizeSearchTerm(value: string) {
+  return value.trim().toLowerCase().replace(/\s+/g, "-");
+}
+
+function resolveDummyCategory(search: string) {
+  const raw = search.trim();
+
+  if (raw.length < 2) {
+    return null;
+  }
+
+  const normalized = normalizeSearchTerm(raw);
+  const readable = raw.toLowerCase();
+
+  return (
+    dummyCategories.find((category) => {
+      return (
+        category === normalized ||
+        category.includes(normalized) ||
+        category.replaceAll("-", " ").includes(readable)
+      );
+    }) ?? null
+  );
+}
 
 function createItems(label: string): Item[] {
   return Array.from({ length: 120 }).map((_, index) => {
@@ -31,6 +101,17 @@ function createItems(label: string): Item[] {
       stock: Math.floor(Math.random() * 80),
     };
   });
+}
+
+function mapDummyProduct(product: DummyProduct): Item {
+  return {
+    id: String(product.id),
+    code: product.sku ?? `DUMMY-${String(product.id).padStart(4, "0")}`,
+    text: product.title,
+    category: product.category,
+    price: product.price,
+    stock: product.stock,
+  };
 }
 
 function fakeApi(
@@ -63,6 +144,43 @@ function fakeApi(
   });
 }
 
+async function liveProductApi(
+  search: string,
+  page: number
+): Promise<ApiResult> {
+  const pageSize = 10;
+  const skip = (page - 1) * pageSize;
+  const category = resolveDummyCategory(search);
+
+  const params = new URLSearchParams({
+    limit: String(pageSize),
+    skip: String(skip),
+    select: "id,title,category,price,stock,sku",
+  });
+
+  const url = category
+    ? `https://dummyjson.com/products/category/${category}?${params.toString()}`
+    : `https://dummyjson.com/products/search?${new URLSearchParams({
+        q: search,
+        limit: String(pageSize),
+        skip: String(skip),
+        select: "id,title,category,price,stock,sku",
+      }).toString()}`;
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error("product_request_failed");
+  }
+
+  const data = (await response.json()) as DummyProductsResponse;
+
+  return {
+    items: data.products.map(mapDummyProduct),
+    hasMore: data.skip + data.limit < data.total,
+  };
+}
+
 function formatCurrency(value: number) {
   return new Intl.NumberFormat("pt-BR", {
     style: "currency",
@@ -84,6 +202,7 @@ export default function AsyncSearchDemo() {
   const [loading, setLoading] = useState(false);
   const [shouldFail, setShouldFail] = useState(false);
   const [error, setError] = useState(false);
+  const [source, setSource] = useState<Source>("mock");
 
   useEffect(() => {
     const timer = setTimeout(() => setDebounced(term.trim()), 300);
@@ -95,7 +214,12 @@ export default function AsyncSearchDemo() {
       return;
     }
 
-    fakeApi(label, debounced, page, shouldFail)
+    const request =
+      source === "live"
+        ? liveProductApi(debounced, page)
+        : fakeApi(label, debounced, page, shouldFail);
+
+    request
       .then((response) => {
         setItems((previous) =>
           page === 1 ? response.items : [...previous, ...response.items]
@@ -110,13 +234,23 @@ export default function AsyncSearchDemo() {
         setError(true);
         setLoading(false);
       });
-  }, [debounced, page, shouldFail, label]);
+  }, [debounced, page, shouldFail, label, source]);
 
   const canSearch = useMemo(() => debounced.length >= 2, [debounced]);
   const visibleItems = canSearch && !error ? items : [];
   const visibleHasMore = canSearch && !error && hasMore;
   const showEmpty =
     canSearch && !loading && !error && visibleItems.length === 0;
+
+  function changeSource(nextSource: Source) {
+    setSource(nextSource);
+    setPage(1);
+    setItems([]);
+    setSelected(null);
+    setHasMore(false);
+    setError(false);
+    setLoading(debounced.length >= 2);
+  }
 
   function handleSearchChange(value: string) {
     setTerm(value);
@@ -143,6 +277,9 @@ export default function AsyncSearchDemo() {
     setShouldFail(false);
   }
 
+  const detectedCategory =
+    source === "live" && canSearch ? resolveDummyCategory(debounced) : null;
+
   return (
     <div className="demo-detail">
       <section className="section-header">
@@ -161,10 +298,32 @@ export default function AsyncSearchDemo() {
               <h2 style={{ margin: 0 }}>{t("demo.async.itemLabel")}</h2>
             </div>
 
+            <div
+              className="source-switcher"
+              aria-label={t("demo.async.sourceLabel")}
+            >
+              <button
+                type="button"
+                className={source === "mock" ? "primary" : "ghost"}
+                onClick={() => changeSource("mock")}
+              >
+                {t("demo.async.mockSource")}
+              </button>
+
+              <button
+                type="button"
+                className={source === "live" ? "primary" : "ghost"}
+                onClick={() => changeSource("live")}
+              >
+                {t("demo.async.liveSource")}
+              </button>
+            </div>
+
             <div className="row">
               <button
                 type="button"
                 className={shouldFail ? "primary" : "ghost"}
+                disabled={source === "live"}
                 onClick={() => {
                   setShouldFail((current) => !current);
                   setPage(1);
@@ -184,6 +343,18 @@ export default function AsyncSearchDemo() {
             onChange={(event) => handleSearchChange(event.target.value)}
             placeholder={t("demo.async.placeholder")}
           />
+
+          <p className="muted" style={{ margin: 0 }}>
+            {source === "live"
+              ? t("demo.async.liveHint")
+              : t("demo.async.mockHint")}
+          </p>
+
+          {detectedCategory ? (
+            <span className="pill">
+              {t("demo.async.categoryDetected")}: {detectedCategory}
+            </span>
+          ) : null}
 
           <div className="async-results">
             {!canSearch ? (
