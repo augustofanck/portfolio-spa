@@ -82,8 +82,11 @@ export default function Projects() {
               >
                 <article>
                   <div className="project-card-topline">
-                    <span className="pill">Case study</span>
-                    <span className="muted">{project.stack[0]}</span>
+                    <span className="pill">
+                      {t(`projectMeta.kind.${project.kind}`)}
+                    </span>
+
+                    <span className="muted">{project.year}</span>
                   </div>
 
                   <h2 className="project-card-title">
@@ -93,6 +96,11 @@ export default function Projects() {
                   <p className="muted project-card-copy">
                     {t(`caseStudies.${project.slug}.oneLiner`)}
                   </p>
+
+                  <div className="project-card-meta">
+                    <span>{t(`projectMeta.role.${project.role}`)}</span>
+                    <span>{t(`projectMeta.status.${project.status}`)}</span>
+                  </div>
 
                   <div className="row" style={{ gap: 8 }}>
                     {project.stack.slice(0, 6).map((stack) => (
