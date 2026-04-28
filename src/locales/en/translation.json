@@ -180,5 +180,21 @@
       "metrics": [],
       "links": { "repo": "Repository", "demo": "Demo" }
     }
+  },
+
+  "projectMeta": {
+    "kind": {
+      "case-study": "Case study",
+      "demo": "Demo",
+      "internal-system": "Internal system"
+    },
+    "status": {
+      "published": "Published",
+      "in-progress": "In progress",
+      "archived": "Archived"
+    },
+    "role": {
+      "fullStackDeveloper": "Full-stack developer"
+    }
   }
 }

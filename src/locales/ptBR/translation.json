@@ -184,5 +184,21 @@
       "metrics": [],
       "links": { "repo": "Repositório", "demo": "Demo" }
     }
+  },
+
+  "projectMeta": {
+    "kind": {
+      "case-study": "Case study",
+      "demo": "Demo",
+      "internal-system": "Sistema interno"
+    },
+    "status": {
+      "published": "Publicado",
+      "in-progress": "Em evolução",
+      "archived": "Arquivado"
+    },
+    "role": {
+      "fullStackDeveloper": "Desenvolvedor full-stack"
+    }
   }
 }

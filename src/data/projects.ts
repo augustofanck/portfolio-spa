@@ -1,5 +1,8 @@
 export type ProjectStatus = "published" | "in-progress" | "archived";
+
 export type ProjectKind = "case-study" | "demo" | "internal-system";
+
+export type ProjectRole = "fullStackDeveloper";
 
 export type ProjectLink = {
   key: "repo" | "demo";
@@ -11,7 +14,7 @@ export type Project = {
   year: string;
   kind: ProjectKind;
   status: ProjectStatus;
-  role: string;
+  role: ProjectRole;
   stack: string[];
   links: ProjectLink[];
 };
@@ -22,7 +25,7 @@ export const projects: Project[] = [
     year: "2025",
     kind: "internal-system",
     status: "published",
-    role: "Full-stack developer",
+    role: "fullStackDeveloper",
     stack: [
       "PHP",
       "CodeIgniter 4",
