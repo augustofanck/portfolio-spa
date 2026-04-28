@@ -122,13 +122,24 @@
   "demo": {
     "budget": {
       "title": "Demo — Dynamic Budget",
-      "desc": "Same logic as a real module: line subtotal, final total, and percentage discount.",
-      "add": "+ Add line",
+      "desc": "Simulates order logic: items, quantity, unit value, per-line discount, and automatically recalculated total.",
+      "add": "Add item",
       "remove": "Remove",
       "subtotal": "Subtotal",
       "total": "Total",
-      "sampleItemName": "Sample item",
-      "newItemName": "New item"
+      "sampleItemName": "Main frame",
+      "newItemName": "New item",
+      "itemName": "Item",
+      "qty": "Qty.",
+      "unit": "Unit value",
+      "discount": "Discount %",
+      "summaryTitle": "Summary",
+      "itemsCount": "Items",
+      "discountTotal": "Discounts",
+      "grossTotal": "Gross total",
+      "netTotal": "Final total",
+      "emptyTitle": "No items added",
+      "emptyDesc": "Add a line to calculate the budget."
     },
     "async": {
       "title": "Demo — Async Search",

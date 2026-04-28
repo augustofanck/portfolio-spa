@@ -124,13 +124,24 @@
   "demo": {
     "budget": {
       "title": "Demo — Orçamento Dinâmico",
-      "desc": "A lógica é a mesma de um módulo real: subtotal por item, total final e desconto percentual.",
-      "add": "+ Adicionar linha",
+      "desc": "Simula a lógica de uma ordem: itens, quantidade, valor unitário, desconto por linha e total recalculado automaticamente.",
+      "add": "Adicionar item",
       "remove": "Remover",
       "subtotal": "Subtotal",
       "total": "Total",
-      "sampleItemName": "Item exemplo",
-      "newItemName": "Novo item"
+      "sampleItemName": "Armação principal",
+      "newItemName": "Novo item",
+      "itemName": "Item",
+      "qty": "Qtd.",
+      "unit": "Valor unitário",
+      "discount": "Desconto %",
+      "summaryTitle": "Resumo",
+      "itemsCount": "Itens",
+      "discountTotal": "Descontos",
+      "grossTotal": "Total bruto",
+      "netTotal": "Total final",
+      "emptyTitle": "Nenhum item adicionado",
+      "emptyDesc": "Adicione uma linha para calcular o orçamento."
     },
     "async": {
       "title": "Demo — Busca Assíncrona",
