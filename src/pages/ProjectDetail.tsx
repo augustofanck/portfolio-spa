@@ -44,7 +44,7 @@ export default function ProjectDetail() {
     <div>
       <section className="project-detail-hero">
         <Link to="/projects" className="project-back-link">
-          ← {t("projectDetail.backLabel")}
+          {"←"} {t("projectDetail.backLabel")}
         </Link>
 
         <p className="eyebrow">{t("projectDetail.eyebrow")}</p>

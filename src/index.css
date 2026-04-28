@@ -638,3 +638,44 @@ hr {
   }
 }
 
+.demo-intro {
+  margin-top: 24px;
+}
+
+.demo-intro-copy {
+  max-width: 760px;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.demo-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 20px;
+}
+
+.demo-card {
+  display: block;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.demo-card article {
+  display: grid;
+  gap: 14px;
+  height: 100%;
+}
+
+.demo-card-title {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.demo-card-copy {
+  margin: 0;
+  line-height: 1.65;
+}

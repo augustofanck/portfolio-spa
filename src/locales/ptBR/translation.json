@@ -98,18 +98,24 @@
     "backLabel": "Todos os projetos"
   },
   "demosPage": {
+    "eyebrow": "Laboratório técnico",
     "title": "Demos",
-    "subtitle": "Mini-apps pra provar habilidade na prática, sem PowerPoint.",
+    "subtitle": "Mini-apps para provar habilidade na prática, sem PowerPoint.",
+    "introTitle": "Cada demo testa uma decisão comum de produto.",
+    "introDesc": "Uso este espaço para isolar padrões que aparecem em sistemas reais: cálculo dinâmico, busca assíncrona, estados de integração e feedback para o usuário.",
+    "viewDemo": "Abrir demo",
     "cards": {
       "budgetTitle": "Orçamento dinâmico",
       "budgetDesc": "Subtotal/total + desconto, add/remove de linhas.",
+      "budgetSkill": "Estado, cálculo e consistência",
       "asyncTitle": "Busca assíncrona",
       "asyncDesc": "Simula Select2 AJAX: debounce, paginação e “load more”.",
+      "asyncSkill": "Debounce, loading e paginação",
       "payTitle": "Estados de pagamento",
-      "payDesc": "Simula approved/pending/failed e UX de retorno."
+      "payDesc": "Simula approved/pending/failed e UX de retorno.",
+      "paySkill": "Integração, status e feedback"
     }
   },
-
   "demo": {
     "budget": {
       "title": "Demo — Orçamento Dinâmico",

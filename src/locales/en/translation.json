@@ -95,20 +95,25 @@
     "openLink": "Open link",
     "backLabel": "All projects"
   },
-
   "demosPage": {
+    "eyebrow": "Technical lab",
     "title": "Demos",
-    "subtitle": "Mini-apps to prove skills in practice—no slides.",
+    "subtitle": "Mini-apps to prove skills in practice, without slides.",
+    "introTitle": "Each demo tests a common product decision.",
+    "introDesc": "I use this space to isolate patterns that show up in real systems: dynamic calculation, async search, integration states, and user feedback.",
+    "viewDemo": "Open demo",
     "cards": {
       "budgetTitle": "Dynamic budget",
       "budgetDesc": "Subtotal/total + discount, add/remove lines.",
+      "budgetSkill": "State, calculation, and consistency",
       "asyncTitle": "Async search",
       "asyncDesc": "Select2 AJAX-like: debounce, pagination, and “load more”.",
+      "asyncSkill": "Debounce, loading, and pagination",
       "payTitle": "Payment states",
-      "payDesc": "Simulates approved/pending/failed and return UX."
+      "payDesc": "Simulates approved/pending/failed and return UX.",
+      "paySkill": "Integration, status, and feedback"
     }
   },
-
   "demo": {
     "budget": {
       "title": "Demo — Dynamic Budget",
