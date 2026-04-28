@@ -40,6 +40,25 @@ export default function ProjectDetail() {
     returnObjects: true,
   }) as string[];
 
+  const responsibilities = t(`caseStudies.${project.slug}.responsibilities`, {
+    returnObjects: true,
+  }) as string[];
+
+  const technicalDecisions = t(
+    `caseStudies.${project.slug}.technicalDecisions`,
+    {
+      returnObjects: true,
+    }
+  ) as string[];
+
+  const learnings = t(`caseStudies.${project.slug}.learnings`, {
+    returnObjects: true,
+  }) as string[];
+
+  const nextSteps = t(`caseStudies.${project.slug}.nextSteps`, {
+    returnObjects: true,
+  }) as string[];
+
   return (
     <div>
       <section className="project-detail-hero">
@@ -74,6 +93,12 @@ export default function ProjectDetail() {
       <section className="project-detail-layout">
         <article className="card project-case">
           <div className="case-section">
+            <p className="eyebrow">{t("projectDetail.context")}</p>
+            <p className="case-copy">
+              {t(`caseStudies.${project.slug}.context`)}
+            </p>
+          </div>
+          <div className="case-section">
             <p className="eyebrow">{t("projectDetail.problem")}</p>
             <p className="case-copy">
               {t(`caseStudies.${project.slug}.problem`)}
@@ -98,6 +123,42 @@ export default function ProjectDetail() {
             </ul>
           </div>
 
+          <div className="case-section">
+            <p className="eyebrow">{t("projectDetail.responsibilities")}</p>
+            <ul className="case-list">
+              {responsibilities.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="case-section">
+            <p className="eyebrow">{t("projectDetail.technicalDecisions")}</p>
+            <ul className="case-list">
+              {technicalDecisions.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="case-section">
+            <p className="eyebrow">{t("projectDetail.learnings")}</p>
+            <ul className="case-list">
+              {learnings.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="case-section">
+            <p className="eyebrow">{t("projectDetail.nextSteps")}</p>
+            <ul className="case-list">
+              {nextSteps.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+
           {metrics.length > 0 ? (
             <div className="case-section">
               <p className="eyebrow">{t("projectDetail.metrics")}</p>
@@ -113,29 +174,29 @@ export default function ProjectDetail() {
         <aside className="project-sidebar">
           <div className="card">
             <p className="eyebrow">{t("projectDetail.overview")}</p>
+
+            <dl className="project-overview-list">
+              <div>
+                <dt>{t("projectDetail.stack")}</dt>
+                <dd>{project.stack[0]}</dd>
+              </div>
+
+              <div>
+                <dt>{t("projectMeta.kindLabel")}</dt>
+                <dd>{t(`projectMeta.kind.${project.kind}`)}</dd>
+              </div>
+
+              <div>
+                <dt>{t("projectMeta.statusLabel")}</dt>
+                <dd>{t(`projectMeta.status.${project.status}`)}</dd>
+              </div>
+
+              <div>
+                <dt>{t("projectMeta.roleLabel")}</dt>
+                <dd>{t(`projectMeta.role.${project.role}`)}</dd>
+              </div>
+            </dl>
           </div>
-
-          <dl className="project-overview-list">
-            <div>
-              <dt>{t("projectDetail.stack")}</dt>
-              <dd>{project.stack[0]}</dd>
-            </div>
-
-            <div>
-              <dt>{t("projectMeta.kindLabel")}</dt>
-              <dd>{t(`projectMeta.kind.${project.kind}`)}</dd>
-            </div>
-
-            <div>
-              <dt>{t("projectMeta.statusLabel")}</dt>
-              <dd>{t(`projectMeta.status.${project.status}`)}</dd>
-            </div>
-
-            <div>
-              <dt>{t("projectMeta.roleLabel")}</dt>
-              <dd>{t(`projectMeta.role.${project.role}`)}</dd>
-            </div>
-          </dl>
 
           <div className="card">
             <p className="eyebrow">{t("projectDetail.stack")}</p>
@@ -162,7 +223,7 @@ export default function ProjectDetail() {
                     <button
                       key={link.key}
                       type="button"
-                      className="ghost"
+                      className="button-link ghost"
                       onClick={() => setDemoModalOpen(true)}
                     >
                       {label}

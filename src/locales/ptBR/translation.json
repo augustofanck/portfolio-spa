@@ -95,7 +95,12 @@
     "overview": "Visão geral",
     "stack": "Stack",
     "openLink": "Abrir link",
-    "backLabel": "Todos os projetos"
+    "backLabel": "Todos os projetos",
+    "context": "Contexto",
+    "responsibilities": "Minha atuação",
+    "technicalDecisions": "Decisões técnicas",
+    "learnings": "Aprendizados",
+    "nextSteps": "Próximos passos"
   },
   "demosPage": {
     "eyebrow": "Laboratório técnico",
@@ -180,6 +185,33 @@
         "Menor porcentagem de erro operacional",
         "Dados seguros e detalhados dentro do projeto",
         "Login/logout utilizando tokens JWT"
+      ],
+      "context": "Sistema operacional para uma ótica que precisava centralizar ordens de serviço, clientes, estoque, pagamentos e indicadores em um fluxo único. A proposta foi reduzir dependência de planilhas e dar mais previsibilidade para atendimento, caixa e gestão.",
+      "responsibilities": [
+        "Modelei e implementei módulos de ordens, clientes, estoque, usuários, pagamentos e relatórios.",
+        "Estruturei regras de acesso por perfil para separar ações de vendedor, gerente e administrador.",
+        "Implementei recálculo de totais, saldo em aberto e validações para evitar inconsistências financeiras.",
+        "Criei integração entre estoque e ordens por busca assíncrona/autocomplete com paginação.",
+        "Adicionei suporte a autenticação web por sessão e base para autenticação JWT em endpoints de API."
+      ],
+      "technicalDecisions": [
+        "Uso de CodeIgniter 4 com Models, Controllers, Filters e Views para manter uma estrutura MVC clara.",
+        "Aplicação de soft delete em entidades importantes para evitar perda definitiva de registros operacionais.",
+        "Normalização de valores monetários e datas antes da persistência para lidar com entradas em formato brasileiro.",
+        "Recálculo de totais da ordem a partir dos itens, evitando depender de valores manuais editáveis.",
+        "Uso de filtros de rota para proteger funcionalidades sensíveis por nível mínimo de permissão."
+      ],
+      "learnings": [
+        "Regras de negócio simples na tela podem exigir bastante cuidado no backend para evitar saldo, total ou pagamento incorreto.",
+        "Sistemas internos precisam ser previsíveis: validação, feedback e permissões importam tanto quanto a tela funcionar.",
+        "Integrar módulos como estoque, ordens e pagamentos exige contratos de dados estáveis e atenção a casos legados.",
+        "Dashboards úteis dependem mais da consistência das consultas e períodos do que apenas da apresentação visual."
+      ],
+      "nextSteps": [
+        "Formalizar mais testes para regras financeiras e permissões.",
+        "Evoluir auditoria de alterações em ordens, pagamentos e estoque.",
+        "Melhorar documentação de setup, migrações e seeders.",
+        "Expandir endpoints de API com escopos bem definidos para integrações futuras."
       ],
       "metrics": [],
       "links": { "repo": "Repositório", "demo": "Demo" }

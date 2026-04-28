@@ -93,7 +93,12 @@
     "overview": "Overview",
     "stack": "Stack",
     "openLink": "Open link",
-    "backLabel": "All projects"
+    "backLabel": "All projects",
+    "context": "Context",
+    "responsibilities": "My role",
+    "technicalDecisions": "Technical decisions",
+    "learnings": "Learnings",
+    "nextSteps": "Next steps"
   },
   "demosPage": {
     "eyebrow": "Technical lab",
@@ -176,6 +181,33 @@
         "Less operational error",
         "Data ready for back-end persistence",
         "Login/logout using JWT tokens"
+      ],
+      "context": "Operational system for an optical store that needed to centralize service orders, customers, inventory, payments, and indicators in a single workflow. The goal was to reduce spreadsheet dependency and make service, cash flow, and management more predictable.",
+      "responsibilities": [
+        "Modeled and implemented modules for orders, customers, inventory, users, payments, and reports.",
+        "Structured role-based access rules for seller, manager, and administrator actions.",
+        "Implemented total recalculation, open balance, and validations to avoid financial inconsistencies.",
+        "Connected inventory and orders through async autocomplete search with pagination.",
+        "Added web session authentication and a foundation for JWT authentication in API endpoints."
+      ],
+      "technicalDecisions": [
+        "Used CodeIgniter 4 with Models, Controllers, Filters, and Views to keep a clear MVC structure.",
+        "Applied soft delete to important entities to avoid permanent loss of operational records.",
+        "Normalized money and date inputs before persistence to handle Brazilian input formats.",
+        "Recalculated order totals from items instead of trusting manually editable values.",
+        "Used route filters to protect sensitive features by minimum permission level."
+      ],
+      "learnings": [
+        "Simple business rules in the UI can require careful backend handling to avoid incorrect balances, totals, or payments.",
+        "Internal systems need predictability: validation, feedback, and permissions matter as much as making the screen work.",
+        "Connecting inventory, orders, and payments requires stable data contracts and attention to legacy cases.",
+        "Useful dashboards depend more on consistent queries and periods than only on visual presentation."
+      ],
+      "nextSteps": [
+        "Add more tests for financial rules and permissions.",
+        "Improve auditing for changes in orders, payments, and inventory.",
+        "Improve setup documentation, migrations, and seeders.",
+        "Expand API endpoints with clear scopes for future integrations."
       ],
       "metrics": [],
       "links": { "repo": "Repository", "demo": "Demo" }
