@@ -143,14 +143,24 @@
     },
     "async": {
       "title": "Demo — Async Search",
-      "desc": "Select2 AJAX-like: debounce, pagination, and load more. Type at least 2 characters.",
-      "placeholder": "e.g., Item 2",
+      "desc": "Simulates an inventory autocomplete with debounce, pagination, loading, empty state, and item selection.",
+      "placeholder": "Search by code, name, or category...",
       "type2": "Type 2+ characters to search.",
-      "loading": "Loading…",
+      "loading": "Loading...",
       "loadMore": "Load more",
       "price": "Price",
       "stock": "Stock",
-      "itemLabel": "Product"
+      "itemLabel": "Product",
+      "code": "Code",
+      "category": "Category",
+      "selectedTitle": "Selected item",
+      "clear": "Clear",
+      "emptyTitle": "No items found",
+      "emptyDesc": "Try searching for another term.",
+      "errorTitle": "Failed to fetch items",
+      "errorDesc": "We simulated an unstable request. Try again.",
+      "retry": "Try again",
+      "simulateError": "Simulate error"
     },
     "payment": {
       "title": "Demo — Payment States",

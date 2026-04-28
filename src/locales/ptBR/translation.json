@@ -145,14 +145,24 @@
     },
     "async": {
       "title": "Demo — Busca Assíncrona",
-      "desc": "Simula Select2 AJAX: debounce, paginação e load more. Digite pelo menos 2 caracteres.",
-      "placeholder": "Ex: Item 2",
+      "desc": "Simula um autocomplete de estoque com debounce, paginação, loading, estado vazio e seleção de item.",
+      "placeholder": "Buscar por código, nome ou categoria...",
       "type2": "Digite 2+ caracteres para buscar.",
-      "loading": "Carregando…",
+      "loading": "Carregando...",
       "loadMore": "Carregar mais",
       "price": "Preço",
       "stock": "Estoque",
-      "itemLabel": "Item"
+      "itemLabel": "Produto",
+      "code": "Código",
+      "category": "Categoria",
+      "selectedTitle": "Item selecionado",
+      "clear": "Limpar",
+      "emptyTitle": "Nenhum item encontrado",
+      "emptyDesc": "Tente buscar por outro termo.",
+      "errorTitle": "Falha ao buscar itens",
+      "errorDesc": "Simulamos uma instabilidade. Tente novamente.",
+      "retry": "Tentar novamente",
+      "simulateError": "Simular erro"
     },
     "payment": {
       "title": "Demo — Estados de Pagamento",

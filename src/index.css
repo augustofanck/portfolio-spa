@@ -901,3 +901,99 @@ hr {
     width: 100%;
   }
 }
+
+.async-results {
+  display: grid;
+  gap: 10px;
+}
+
+.async-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.async-loading span {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 700ms linear infinite;
+}
+
+.async-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  text-align: left;
+  background: var(--surface);
+}
+
+.async-result > span {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.async-result small {
+  overflow-wrap: anywhere;
+}
+
+.async-result-meta {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.selected-item {
+  display: grid;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.selected-item dl {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.selected-item dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.selected-item dt {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.selected-item dd {
+  margin: 0;
+  text-align: right;
+  font-weight: 700;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 560px) {
+  .async-result {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .async-result-meta {
+    text-align: left;
+    white-space: normal;
+  }
+}
+
