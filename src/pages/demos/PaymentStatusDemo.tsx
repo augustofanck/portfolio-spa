@@ -156,7 +156,7 @@ export default function PaymentStatusDemo() {
             </p>
           </div>
 
-          <div className="row">
+          <div className="payment-actions">
             <button
               type="button"
               className="primary"

@@ -9,12 +9,14 @@ import AsyncSearchDemo from "./pages/demos/AsyncSearchDemo";
 import PaymentStatusDemo from "./pages/demos/PaymentStatusDemo";
 import Engineering from "./pages/Engineering";
 import NotFound from "./pages/NotFound";
+import About from "./pages/About";
 
 export default function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
 
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:slug" element={<ProjectDetail />} />

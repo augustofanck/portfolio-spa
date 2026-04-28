@@ -7,6 +7,7 @@ import i18n from "../i18n";
 
 const navItems = [
   { to: "/", labelKey: "nav.home" },
+  { to: "/about", labelKey: "nav.about" },
   { to: "/projects", labelKey: "nav.projects" },
   { to: "/demos", labelKey: "nav.demos" },
   { to: "/engineering", labelKey: "nav.eng" },

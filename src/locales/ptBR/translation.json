@@ -1,6 +1,7 @@
 {
   "nav": {
     "home": "Home",
+    "about": "Sobre",
     "projects": "Projetos",
     "demos": "Demos",
     "eng": "Engenharia",
@@ -71,6 +72,42 @@
     "proofDemosEyebrow": "Laboratório técnico",
     "proofEngineeringEyebrow": "Notas e decisões",
     "proofEngineeringDesc": "Escrita curta sobre padrões, decisões e aprendizados aplicados nos projetos."
+  },
+
+  "aboutPage": {
+    "eyebrow": "Sobre",
+    "title": "Desenvolvedor full-stack em formação contínua, com foco em sistemas internos.",
+    "intro": "Meu trabalho tem se concentrado em transformar fluxos operacionais em aplicações mais previsíveis: cadastro, ordens, estoque, pagamentos, permissões, integrações e interfaces que ajudam a operação a errar menos.",
+    "profileTitle": "Perfil técnico",
+    "profileDesc": "Tenho buscado uma base sólida em desenvolvimento full-stack, combinando backend, frontend, banco de dados e raciocínio de produto. Gosto de entender o problema antes de escolher a solução, principalmente quando envolve regra de negócio e dados sensíveis.",
+    "workTitle": "Como gosto de trabalhar",
+    "workItems": [
+      "Entender o fluxo real antes de desenhar a tela.",
+      "Proteger regras importantes no backend.",
+      "Criar interfaces claras para estados de loading, erro, vazio e sucesso.",
+      "Manter código legível para evolução futura.",
+      "Documentar decisões quando elas ajudam manutenção."
+    ],
+    "stackTitle": "Stack e interesses atuais",
+    "stackItems": [
+      "React",
+      "TypeScript",
+      "PHP",
+      "CodeIgniter 4",
+      "MySQL",
+      "APIs",
+      "Autenticação",
+      "UX operacional"
+    ],
+    "nowTitle": "Agora estou aprofundando",
+    "nowItems": [
+      "Testes para regras críticas.",
+      "Melhor separação entre interface, regra de negócio e dados.",
+      "Integrações com contratos mais claros.",
+      "Design de portfólios e documentação técnica."
+    ],
+    "contactTitle": "Contato",
+    "contactDesc": "Se quiser acompanhar meus projetos ou falar comigo, estes são os melhores caminhos."
   },
 
   "projectsPage": {
@@ -211,7 +248,16 @@
   },
 
   "engineeringPage": {
-    "title": "Notas de Engenharia"
+    "eyebrow": "Raciocínio técnico",
+    "title": "Notas de Engenharia",
+    "subtitle": "Princípios, decisões e aprendizados que guiam meu trabalho em sistemas internos, integrações e UX operacional.",
+    "sidebarTitle": "Nesta página",
+    "topicPrinciples": "Princípios",
+    "topicSystems": "Sistemas internos",
+    "topicValidation": "Validação",
+    "topicIntegrations": "Integrações",
+    "topicContracts": "Contratos",
+    "topicEvolution": "Evolução"
   },
 
   "notFound": {

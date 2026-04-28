@@ -1,6 +1,7 @@
 {
   "nav": {
     "home": "Home",
+    "about": "Sobre",
     "projects": "Projects",
     "demos": "Demos",
     "eng": "Engineering",
@@ -69,6 +70,42 @@
     "proofDemosEyebrow": "Technical lab",
     "proofEngineeringEyebrow": "Notes and decisions",
     "proofEngineeringDesc": "Short writing about patterns, decisions, and lessons applied across projects."
+  },
+
+  "aboutPage": {
+    "eyebrow": "About",
+    "title": "Full-stack developer in continuous growth, focused on internal systems.",
+    "intro": "My work has focused on turning operational workflows into more predictable applications: records, orders, inventory, payments, permissions, integrations, and interfaces that help operations make fewer mistakes.",
+    "profileTitle": "Technical profile",
+    "profileDesc": "I have been building a solid full-stack foundation, combining backend, frontend, databases, and product reasoning. I like understanding the problem before choosing the solution, especially when business rules and sensitive data are involved.",
+    "workTitle": "How I like to work",
+    "workItems": [
+      "Understand the real workflow before designing the screen.",
+      "Protect important rules in the backend.",
+      "Create clear interfaces for loading, error, empty, and success states.",
+      "Keep code readable for future evolution.",
+      "Document decisions when they help maintenance."
+    ],
+    "stackTitle": "Current stack and interests",
+    "stackItems": [
+      "React",
+      "TypeScript",
+      "PHP",
+      "CodeIgniter 4",
+      "MySQL",
+      "APIs",
+      "Authentication",
+      "Operational UX"
+    ],
+    "nowTitle": "Now I am deepening",
+    "nowItems": [
+      "Tests for critical rules.",
+      "Better separation between interface, business rules, and data.",
+      "Integrations with clearer contracts.",
+      "Portfolio design and technical documentation."
+    ],
+    "contactTitle": "Contact",
+    "contactDesc": "If you want to follow my projects or reach out, these are the best paths."
   },
 
   "projectsPage": {
@@ -208,7 +245,18 @@
     }
   },
 
-  "engineeringPage": { "title": "Engineering Notes" },
+  "engineeringPage": {
+    "eyebrow": "Technical reasoning",
+    "title": "Engineering Notes",
+    "subtitle": "Principles, decisions, and lessons that guide my work in internal systems, integrations, and operational UX.",
+    "sidebarTitle": "On this page",
+    "topicPrinciples": "Principles",
+    "topicSystems": "Internal systems",
+    "topicValidation": "Validation",
+    "topicIntegrations": "Integrations",
+    "topicContracts": "Contracts",
+    "topicEvolution": "Evolution"
+  },
 
   "notFound": {
     "title": "404",
