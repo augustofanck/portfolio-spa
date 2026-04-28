@@ -605,6 +605,53 @@ hr {
   align-items: start;
 }
 
+.project-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.project-detail-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.project-detail-meta span + span::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.project-overview-list {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 0;
+}
+
+.project-overview-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.project-overview-list dt {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.project-overview-list dd {
+  margin: 0;
+  text-align: right;
+  font-weight: 700;
+}
+
 .project-case {
   display: grid;
   gap: 28px;

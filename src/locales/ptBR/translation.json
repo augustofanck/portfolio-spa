@@ -187,6 +187,9 @@
   },
 
   "projectMeta": {
+    "kindLabel": "Tipo",
+    "statusLabel": "Status",
+    "roleLabel": "Papel",
     "kind": {
       "case-study": "Case study",
       "demo": "Demo",

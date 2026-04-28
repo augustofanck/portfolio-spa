@@ -55,6 +55,13 @@ export default function ProjectDetail() {
 
         <p className="hero-copy">{t(`caseStudies.${project.slug}.oneLiner`)}</p>
 
+        <div className="project-detail-meta">
+          <span>{t(`projectMeta.kind.${project.kind}`)}</span>
+          <span>{project.year}</span>
+          <span>{t(`projectMeta.role.${project.role}`)}</span>
+          <span>{t(`projectMeta.status.${project.status}`)}</span>
+        </div>
+
         <div className="row" style={{ gap: 8 }}>
           {project.stack.map((stack) => (
             <span key={stack} className="pill">
@@ -104,6 +111,32 @@ export default function ProjectDetail() {
         </article>
 
         <aside className="project-sidebar">
+          <div className="card">
+            <p className="eyebrow">{t("projectDetail.overview")}</p>
+          </div>
+
+          <dl className="project-overview-list">
+            <div>
+              <dt>{t("projectDetail.stack")}</dt>
+              <dd>{project.stack[0]}</dd>
+            </div>
+
+            <div>
+              <dt>{t("projectMeta.kindLabel")}</dt>
+              <dd>{t(`projectMeta.kind.${project.kind}`)}</dd>
+            </div>
+
+            <div>
+              <dt>{t("projectMeta.statusLabel")}</dt>
+              <dd>{t(`projectMeta.status.${project.status}`)}</dd>
+            </div>
+
+            <div>
+              <dt>{t("projectMeta.roleLabel")}</dt>
+              <dd>{t(`projectMeta.role.${project.role}`)}</dd>
+            </div>
+          </dl>
+
           <div className="card">
             <p className="eyebrow">{t("projectDetail.stack")}</p>
             <div className="row" style={{ gap: 8, marginTop: 8 }}>
